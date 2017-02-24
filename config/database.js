@@ -1,12 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/kwik');
+var db = mongoose.connect(process.env.DATABASE_URL);
 
-var db = mongoose.connection;
-
-db.once('open', function() {
-    console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
-});
-
-db.on('error', function(err) {
-    console.error(`Database error:\n${err}`);
+db.connection.on('open', function(){
+  console.log(`connected to ${db.connection.name} on ${db.connection.host} ${db.connection.port}`);
 });
