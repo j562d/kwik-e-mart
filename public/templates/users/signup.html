@@ -1,0 +1,32 @@
+<h2>Sign Up</h2>
+<div class="row">
+  <form ng-submit="userCtrl.signup()" class="col s12">
+    <div class="input-field">
+      <input ng-model="userCtrl.user.name" autocomplete="off" id="name" type="text" required>
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="email" required>
+      <label for="email">Email</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.password" autocomplete="off" id="password" type="password" required>
+      <label for="password">Password</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.address.street" autocomplete="off" id="address.street" type="address.street" required>
+      <label for="address.street">Street</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.address.city" autocomplete="off" id="address.city" type="address.city" required>
+      <label for="address.city">City</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.address.zipcode" autocomplete="off" id="address.zipcode" type="address.zipcode" required>
+      <label for="address.zipcode">Zipcode</label>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Sign Up
+    </button>
+  </form>
+</div>
