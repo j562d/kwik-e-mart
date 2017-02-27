@@ -38,5 +38,12 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       controller: 'UserController as userCtrl'
     })
 
+    .state('newProduct', {
+      url: '/new',
+      templateUrl: 'templates/products/new.html',
+      controller: 'NewController as newCtrl',
+      loginRequired: true
+    });
+
   $urlRouterProvider.otherwise('/home');
 }

@@ -13,7 +13,7 @@ function create(req, res, next) {
   User.create(req.body).then(user => {
     var token = jwt.sign({
       user: user
-    }, SECRET, {expiresIn: '5m'});
+    }, SECRET, {expiresIn: '30m'});
     res.set('Authorization', token);
     res.json({msg: 'logged in successfully'});
   }).catch( err => res.status(400).json(err) );
@@ -26,7 +26,7 @@ function login(req, res, next) {
       if (isMatch) {
         var token = jwt.sign({
           user: user
-        }, SECRET, {expiresIn: '5m'});
+        }, SECRET, {expiresIn: '30m'});
         res.set('Authorization', token);
         res.json({msg: 'logged in successfully'});
       } else {

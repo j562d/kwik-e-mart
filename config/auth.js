@@ -15,7 +15,7 @@ module.exports = function(req, res, next) {
         token = jwt.sign(
           {user: decoded.user},
           SECRET,
-          {expiresIn: '5m'}
+          {expiresIn: '30m'}
         );
         res.set('Authorization', token);
         next();

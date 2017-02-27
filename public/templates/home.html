@@ -1,6 +1,19 @@
 welcome {{navCtrl.getUser().name}}
 welcome {{navCtrl.getUser().address}}
 
+<h4 ng-show="navCtrl.isLoggedIn()">Address:</h4>
+<!-- <ul ng-repeat="x in navCtrl.getUser().address">
+  <li>Street: {{x.street}}</li>
+  <li>City: {{x.city}}</li>
+  <li>Zipcode: {{x.zipcode}}</li>
+</ul> -->
 
+<li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
 
-
+<div ng-controller="ProductsController as pCtrl">
+<ul ng-repeat="p in pCtrl.products">
+  <li>{{p.name}}</li>
+  <li>{{p.description}}</li>
+  <li><img src='{{p.imageURL}}' height="300" width="300"></li>
+</ul>
+</div>

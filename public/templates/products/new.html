@@ -1,0 +1,34 @@
+this is new product page
+
+<h2>Create a Product</h2>
+<div class="row">
+  <form ng-submit="newCtrl.addProduct()" class="col s12">
+    <div class="input-field">
+      <input ng-model="newCtrl.product.name" autocomplete="off" id="name" type="text" required>
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.sku" autocomplete="off" id="sku" type="text" required>
+      <label for="sku">sku</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.description" autocomplete="off" id="description" type="text" required>
+      <label for="description">description</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.category" autocomplete="off" id="category" type="text" required>
+      <label for="category">Category</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.price" autocomplete="off" id="price" type="text" required>
+      <label for="price">Price</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.imageURL" autocomplete="off" id="imageURL" type="text" required>
+      <label for="imageURL">Image URL</label>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Create product
+    </button>
+  </form>
+</div>
