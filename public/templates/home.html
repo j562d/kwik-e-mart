@@ -15,6 +15,7 @@
 <ul ng-repeat="p in pCtrl.products">
   <li><a ui-sref="viewProduct({productId: p._id})">{{p.name}}</a></li>
   <li>{{p.description}}</li>
+    <a ng-click="pCtrl.delProduct(p)" >delete</a>
   <li><img ng-src='{{p.imageURL}}' height="300" width="300"></li>
 </ul>
 </div>
