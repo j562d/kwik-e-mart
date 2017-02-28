@@ -2,7 +2,7 @@
 <!-- welcome {{navCtrl.getUser().address}} -->
 
 <h4 ng-show="navCtrl.isLoggedIn()">Address:</h4>
-<!-- <ul ng-repeat="x in navCtrl.getUser().address">
+<!-- <ul ng-repeat="x in navCtrl.getUser().address track by $index">
   <li>Street: {{x.street}}</li>
   <li>City: {{x.city}}</li>
   <li>Zipcode: {{x.zipcode}}</li>
@@ -13,9 +13,11 @@
 <div ng-controller="ProductsController as pCtrl">
 
 <ul ng-repeat="p in pCtrl.products">
+<div class="col-xs-4">
   <li><a ui-sref="viewProduct({productId: p._id})">{{p.name}}</a></li>
   <li>{{p.description}}</li>
-    <a ng-click="pCtrl.delProduct(p)" >delete</a>
+<!--     <a ng-click="pCtrl.delProduct(p)" >delete</a> -->
   <li><img ng-src='{{p.imageURL}}' height="300" width="300"></li>
+  </div>
 </ul>
 </div>

@@ -5,7 +5,8 @@ module.exports = {
   getAllProducts,
   getProduct,
   createProduct,
-  deleteProduct
+  deleteProduct,
+  updateProduct
 };
 
 function getAllProducts(req, res, next) {
@@ -13,6 +14,7 @@ function getAllProducts(req, res, next) {
     res.json(products);
   }).catch(err => res.status(500).json(err));
 }
+
 
 function getProduct(req, res, next) {
   Product.findById(req.params.id).exec().then(product => {
@@ -32,3 +34,8 @@ function deleteProduct(req, res, next) {
   }).catch(err => res.status(400).json(err));
 }
 
+function updateProduct(req, res, next) {
+  Product.findByIdAndUpdate(req.params.id, req.body).exec().then(product => {
+    res.json(product);
+  }).catch(err => res.status(500).json(err));
+}

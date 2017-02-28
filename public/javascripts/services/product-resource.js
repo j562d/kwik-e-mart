@@ -7,9 +7,8 @@ angular.module('app')
 
 productService.$inject = ['$resource'];
 
-
 function productService($resource) {
-  return $resource('/api/products/:id', {id: '@_id'});
+  return $resource('/api/products/:id', {id: '@_id'}, {'update': { method: 'PUT'}});
 }
 
 // function productService($resource) {
@@ -21,6 +20,12 @@ function productService($resource) {
 //   });
 // }
 
+//   $http.get('/api/products/:id')
+//   .then(function(resp) {
+//     vm.products = resp.data.products;
+//     //vm.allPokemon = resp.data.results;
+//   });
+// }
 
 
 })();

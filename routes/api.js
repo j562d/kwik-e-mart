@@ -19,8 +19,10 @@ router.use(function(req, res, next) {
 // Protected routes (authentication required)
 router.get('/products', productCtrl.getAllProducts);
 router.get('/products/:id', productCtrl.getProduct);
+
 router.post('/products', productCtrl.createProduct);
 router.delete('/products/:id', productCtrl.deleteProduct);
+router.put('/products/:id', productCtrl.updateProduct);
 
 
 module.exports = router;

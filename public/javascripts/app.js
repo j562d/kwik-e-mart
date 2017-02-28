@@ -54,6 +54,12 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       controller: 'ProductsController as pCtrl'
     });
 
+    // .state('editProduct', {
+    //   url: '/products/:productId/edit',
+    //   templateUrl: 'templates/products/edit.html',
+    //   controller: 'ProductsController as pCtrl'
+    // });
+
   $urlRouterProvider.otherwise('/home');
 }
 

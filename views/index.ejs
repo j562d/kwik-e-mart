@@ -3,15 +3,15 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
   </head>
   <body ng-controller="NavController as navCtrl">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-      <li><a ui-sref="login">Log In</a></li>
+
+      <li ng-hide="navCtrl.isLoggedIn()"><a ui-sref="login">Log In</a></li>
       <li ng-hide="navCtrl.isLoggedIn()"><a ui-sref="signup">Sign Up</a></li>
       <li ng-show="navCtrl.isLoggedIn()"><a ng-click="navCtrl.logout()">Log Out</a></li>
 

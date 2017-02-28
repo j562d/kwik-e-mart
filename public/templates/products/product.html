@@ -1,6 +1,24 @@
 this is the product page
 
 
-<h2>{{pCtrl.product.name}}</h2>
+<h2><a ui-sref="editProduct">{{pCtrl.product.name}}</a></h2>
 <img src='{{pCtrl.product.imageURL}}' height="300" width="300">
+{{pCtrl.product.sku}}
   <a ng-click="pCtrl.delProduct(product)" >delete</a>
+
+
+
+<!--       <span >
+        <input type="text" ng-model="pCtrl.product.name">
+        <button class="btn btn-xs btn-info" ng-click="pCtrl.editProduct(product)">Save</button>
+      </span>
+ -->
+
+<!--       <span ng-hide="pCtrl.productEditing === product" ng-click="pCtrl.selectproduct(product)">{{product.name}}</span>
+      <span ng-show="pCtrl.productEditing === product"> -->
+        <input type="text" ng-model="pCtrl.product.name" id="name">
+        <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
+<!--       </span>
+ -->
+ <input type="text" ng-model="pCtrl.product.sku" id="name">
+ <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
