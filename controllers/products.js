@@ -3,6 +3,7 @@ var ObjectId = require('mongoose').Schema.Types.ObjectId;
 
 module.exports = {
   getAllProducts,
+  getProduct,
   createProduct,
   deleteProduct
 };
@@ -10,6 +11,12 @@ module.exports = {
 function getAllProducts(req, res, next) {
   Product.find().exec().then(products => {
     res.json(products);
+  }).catch(err => res.status(500).json(err));
+}
+
+function getProduct(req, res, next) {
+  Product.findById(req.params.id).exec().then(product => {
+    res.json(product);
   }).catch(err => res.status(500).json(err));
 }
 

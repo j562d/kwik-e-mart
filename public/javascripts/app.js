@@ -1,3 +1,6 @@
+(function () {
+'use strict';
+
 angular.module('app', ['ui.router', 'ngResource'])
   .config(configRoutes)
   .run(runBlock);
@@ -43,7 +46,19 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'templates/products/new.html',
       controller: 'NewController as newCtrl',
       loginRequired: true
+    })
+
+    .state('viewProduct', {
+      url: '/products/:productId',
+      templateUrl: 'templates/products/product.html',
+      controller: 'ProductsController as pCtrl'
     });
 
   $urlRouterProvider.otherwise('/home');
 }
+
+
+
+
+})();
+
