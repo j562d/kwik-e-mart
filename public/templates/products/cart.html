@@ -1,0 +1,13 @@
+cart page
+
+<div ng-repeat="p in pCtrl.cart">
+
+<p>
+<img ng-src='{{p.imageURL}}' height="100" width="100">
+{{p.name}}
+Price: ${{p.price}}
+Quantity: {{p.qty}}
+<button ng-click="changeQty(p)">QTY</button>
+<button class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="Delete">
+</p>
+</div>

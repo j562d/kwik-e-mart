@@ -11,9 +11,11 @@
   </head>
   <body ng-controller="NavController as navCtrl">
 
-      <li ng-hide="navCtrl.isLoggedIn()"><a ui-sref="login">Log In</a></li>
-      <li ng-hide="navCtrl.isLoggedIn()"><a ui-sref="signup">Sign Up</a></li>
-      <li ng-show="navCtrl.isLoggedIn()"><a ng-click="navCtrl.logout()">Log Out</a></li>
+      <img class="apu" ui-sref="home" src='http://i.imgur.com/hP6IDWX.gif' height="100" width="100">
+      <a ng-hide="navCtrl.isLoggedIn()" ui-sref="login">Log In</a><br>
+      <a ng-hide="navCtrl.isLoggedIn()" ui-sref="signup">Sign Up</a><br>
+      <a ng-show="navCtrl.isLoggedIn()" ng-click="navCtrl.logout()">Log Out</a><br>
+      <a ui-sref="cart">View your Cart</a><br>
 
 <div ui-view class="container"></div>
 
@@ -22,6 +24,7 @@
     <script src="/javascripts/services/token-service.js"></script>
     <script src="/javascripts/services/user-service.js"></script>
     <script src="/javascripts/services/product-resource.js"></script>
+    <script src="/javascripts/services/cart-service.js"></script>
     <script src="/javascripts/controllers/nav-controller.js"></script>
     <script src="/javascripts/controllers/products-controller.js"></script>
     <script src="/javascripts/controllers/user-controller.js"></script>

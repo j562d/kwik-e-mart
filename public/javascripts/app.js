@@ -52,6 +52,18 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/products/:productId',
       templateUrl: 'templates/products/product.html',
       controller: 'ProductsController as pCtrl'
+    })
+
+    .state('cart', {
+      url: '/cart',
+      templateUrl: 'templates/products/cart.html',
+      controller: 'ProductsController as pCtrl'
+    })
+
+    .state('user', {
+      url: '/user/:userId',
+      templateUrl: 'templates/users/user.html',
+      controller: 'UserController as userCtrl'
     });
 
     // .state('editProduct', {

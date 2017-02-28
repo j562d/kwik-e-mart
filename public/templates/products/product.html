@@ -22,3 +22,6 @@ this is the product page
  -->
  <input type="text" ng-model="pCtrl.product.sku" id="name">
  <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
+
+    <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="BUY">
+    <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(pCtrl.product)" value="Delete">
