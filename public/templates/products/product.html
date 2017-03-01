@@ -2,9 +2,12 @@ this is the product page
 
 
 <h2><a ui-sref="editProduct">{{pCtrl.product.name}}</a></h2>
-<img src='{{pCtrl.product.imageURL}}' height="300" width="300">
-{{pCtrl.product.sku}}
-  <a ng-click="pCtrl.delProduct(product)" >delete</a>
+<img class="float" src='{{pCtrl.product.imageURL}}' height="300" width="300"><br>
+<h5>Product Sku: {{pCtrl.product.sku}}</h5><br>
+<h5>Price: ${{pCtrl.product.price}}</h5><br>
+<h4>{{pCtrl.product.description}}</h4><br>
+  <button class="btn-warning" ng-click="pCtrl.delProduct(product)" >delete</button>
+
 
 
 
@@ -25,3 +28,37 @@ this is the product page
 
     <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="BUY">
     <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(pCtrl.product)" value="Delete">
+
+<!-- <form ng-submit="pCtrl.createReview()" class="col s12">
+<div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.reviews.comment" autocomplete="off" id="comment" type="text" required>
+      <label for="comment">comment</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="newCtrl.product.reviews.rating" autocomplete="off" id="rating" type="text" required>
+      <label for="rating">rating</label>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Create product
+    </button>
+  </form>
+</div> -->
+
+<!--  <button class="btn btn-xs btn-info" ng-click="pCtrl.createReview(product)">review</button>
+
+ -->
+{{pCtrl.product.reviews}}
+
+<form ng-submit="pCtrl.createReview()">
+        <div class="form-group">
+        <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
+        <input ng-model="pCtrl.rating" autocomplete="off" type="textarea" class="form-control" placeholder="rating">
+      </div>
+      <button class="btn btn-default" type="submit">Add Comment</button>
+ </form><br>
+
+    <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
+      <div class="panel-header">&nbsp;&nbsp;{{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
+      <div class="panel-body"><strong>{{review.text}}</strong></div>
+    </div>

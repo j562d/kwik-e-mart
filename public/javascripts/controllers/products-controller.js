@@ -4,53 +4,30 @@
 angular.module('app')
 .controller('ProductsController', ProductsController);
 
-ProductsController.$inject = ['productService', '$stateParams', '$state', '$http', 'CartService'];
+ProductsController.$inject = ['productService', '$stateParams', '$state', '$http', 'CartService', 'UserService'];
 
-function ProductsController(productService, $stateParams, $state, $http, CartService) {
+function ProductsController(productService, $stateParams, $state, $http, CartService, UserService) {
   var vm = this;
 
   vm.cart = CartService.getCart();
 
-
   vm.products = productService.query();
-  // vm.products=[];
 
-   // $http.get('/api/products/')
-   // .then(function(resp) {
-   //     vm.products = resp.data.products;
-   //     console.log(resp.data);
-   // });
-
-
-  // productService.getProducts(function(data) {
-  //   vm.products = data;
-  // })
-
-  vm.product = productService.get({id: $stateParams.productId}, function(data) {
-    // vm.product = data;
-    console.log(vm.product);
-  })
-
-  // vm.getOne = function(product) {
-  //   productService.get({id: $stateParams.productId}, function(data) {
-  //   vm.product = data;
-  //   console.log(vm.product);
-  //   })
-  // };
+  if ($stateParams.productId) {
+    productService.get({id: $stateParams.productId}, function(data) {
+      vm.product = data;
+    });
+  }
 
   vm.delProduct = function(product) {
     vm.product.$delete(function() {
       console.log(vm.product);
       // vm.products.splice(vm.products.findIndex(t => t._id === product._id), 1);
-      vm.products = productService.query();
+      // vm.products = productService.query();
       $state.go('home');
       // above is more performant than vm.products = Todo.query();
     });
   };
-
-  // vm.selectProduct = function(product) {
-  //   vm.productEditing = product;
-  // };
 
   vm.edit = function(product) {
     vm.product.$update(function(){
@@ -59,35 +36,9 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
     });
   };
 
-  // vm.addItemToCart = function(product) {
-  //     if (vm.cart.length === 0){
-  //       vm.product.count = 1;
-  //       vm.cart.push(product);
-  //       console.log(vm.cart);
-  //     } else {
-  //       var repeat = false;
-  //       for(var i = 0; i< vm.cart.length; i++){
-  //         if(vm.cart[i].id === product._id){
-  //           repeat = true;
-  //           vm.cart[i].count +=1;
-  //         }
-  //       }
-  //       if (!repeat) {
-  //         product.count = 1;
-  //         vm.cart.push(product);
-  //       }
-  //     }
-  // }
-
-//   vm.addItemToCart = function(product) {
-//   var itemToAdd = angular.copy(product);
-//   itemToAdd.count = 1;
-//   vm.cart.push(itemToAdd);
-//   console.log(vm.cart);
-// }
-
   vm.addItemToCart = function(item) {
     CartService.addItem(item);
+    $state.reload();
   }
 
   vm.addItemToCartView = function(product) {
@@ -97,19 +48,39 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
   console.log(vm.cart);
 }
 
-  // vm.deleteItem = function(product) {
-  // var cart = vm.cart;
-  // cart.splice(product, 1);
-  // console.log(vm.cart);
-  // }
-
   vm.deleteItem = function(item) {
     CartService.removeItem(item);
+    $state.reload();
   }
 
-  vm.changeQty = function(item) {
-    CartService.changeItemQty(item);
+  vm.decreaseItem = function(item) {
+    CartService.decreaseItem(item);
+    $state.reload();
   }
+
+
+  vm.getTotal = function(){
+      var total = 0;
+      for(var i = 0; i < vm.cart.length; i++){
+          var product = vm.cart[i];
+          total += (product.price * product.qty);
+      }
+      return total;
+  }
+
+  vm.createReview = function() {
+      productService.addreview({productId: $stateParams.productId, text: vm.text, rating: vm.rating}, function(product) {
+          vm.product = product;
+          vm.text = '';
+          console.log(product);
+      });
+  }
+
+  vm.deleteReview = function (review) {
+      productService.deletereview({reviewId: review._id}, function(product) {
+          vm.product = product;
+      });
+  };
 
 
 }

@@ -4,10 +4,12 @@
 angular.module('app')
 .controller('NavController', NavController);
 
-NavController.$inject = ['$state', 'UserService'];
+NavController.$inject = ['$state', 'UserService', 'CartService'];
 
-function NavController($state, UserService) {
+function NavController($state, UserService, CartService) {
   var vm = this;
+
+  vm.cart = CartService.getCart();
 
   vm.logout = function() {
     UserService.logout();

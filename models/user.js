@@ -15,8 +15,9 @@ var orderSchema = new Schema ({
   number: Number,
   createdAt: {type: Date,
               default: Date.now},
-  items: [{type: Schema.Types.ObjectId, ref: 'Product'}],
+  items: [],
   total: Number,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
   shipped: {type: Boolean,
             default: false}
 });

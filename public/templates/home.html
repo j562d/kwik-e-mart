@@ -1,4 +1,4 @@
-<h2>welcome {{navCtrl.getUser().name}}</h2>
+<h2>Welcome {{navCtrl.getUser().name}}!</h2>
 <a ui-sref="user">Account</a>
 <!-- welcome {{navCtrl.getUser().address}} -->
 
@@ -8,22 +8,37 @@
   <li>City: {{x.city}}</li>
   <li>Zipcode: {{x.zipcode}}</li>
 </ul> -->
+
 <p>
-    Search for a Product: <input ng-model="search">
+    <strong>Search for a Product: <input ng-model="search"></strong>
 </p>
+  <h3> Shop by Category </h3>
+  <button class="btn-info btn-lg" ng-click="myFilter = { }">All</button> |
+  <button class="btn-info btn-lg" ng-click="myFilter = {category: 'food'}">Food</button> |
+  <button class="btn-info btn-lg" ng-click="myFilter = {category: 'toys'}">Toys</button> |
 
 <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
 
 <div ng-controller="ProductsController as pCtrl">
-  <ul ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search"">
-  <div class="col-xs-4">
-    <li><a ui-sref="viewProduct({productId: product._id})">{{product.name}}</a></li>
+  <ul ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
+
+
+  <div class="col-md-4">
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" alt="Card image cap" height="300" width="300">
+      <div class="card-block">
+      <h4 class="card-title">{{product.name}}</h4>
+<!--       <p class="card-text">{{product.description}}</p> -->
+      <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(product)" value="BUY">
+      <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(product)" value="Delete">
+      </div>
+    </div>
+  </div>
+<!--     <li><a ui-sref="viewProduct({productId: product._id})">{{product.name}}</a></li>
     <li>{{product.description}}</li>
     <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(product)" value="BUY">
     <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(product)" value="Delete">
-<!--     <a ng-click="pCtrl.delProduct(p)" >delete</a> -->
-    <li><img ui-sref="viewProduct({productId: product._id})" ng-src='{{product.imageURL}}' height="300" width="300"></li>
-  </div>
+    <li><img ui-sref="viewProduct({productId: product._id})" ng-src='{{product.imageURL}}' height="300" width="300"></li> -->
   </ul>
 </div>
 

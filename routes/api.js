@@ -5,6 +5,8 @@ var productCtrl = require('../controllers/products');
 
 // Public routes (no auth required)
 router.post('/users/login', userCtrl.login);
+router.get('/products', productCtrl.getAllProducts);
+router.get('/products/:id', productCtrl.getProduct);
 router.get('/users/logout', userCtrl.logout);
 router.post('/users', userCtrl.create);
 router.get('/users/me', userCtrl.me);
@@ -17,12 +19,13 @@ router.use(function(req, res, next) {
 });
 
 // Protected routes (authentication required)
-router.get('/products', productCtrl.getAllProducts);
-router.get('/products/:id', productCtrl.getProduct);
+
 
 router.post('/products', productCtrl.createProduct);
 router.delete('/products/:id', productCtrl.deleteProduct);
 router.put('/products/:id', productCtrl.updateProduct);
+router.post('/products/:id/reviews', productCtrl.addReview);
+router.delete('/reviews/:id', productCtrl.deleteReview);
 
 
 module.exports = router;

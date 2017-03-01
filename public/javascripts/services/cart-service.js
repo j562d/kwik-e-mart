@@ -9,32 +9,22 @@ function CartService(UserService) {
     clearCart,
     addItem,
     getCart,
-    changeItemQty
+    decreaseItem
   };
 
   function removeItem(item) {
     var cart = getCart();
     var itemIdx = cart.findIndex(i => i._id === item._id);
     if(itemIdx != -1) {
-      cart.splice(itemIdx, 1);
-      // item.qty--;
-    };
-    updateCart(cart);
-    console.log(cart);
-    return cart;
-  }
-
-  function changeItemQty(item, newQty) {
-    var cart = getCart();
-    var existingItem = cart.find(i => i._id === item._id);
-    if(existingItem) {
-      existingItem.qty = newQty;
-    };
+       cart.splice(itemIdx, 1);
+    }
     updateCart(cart);
     return cart;
   }
 
   function clearCart() {
+    var key = getCartKey();
+    localStorage.removeItem(key);
   }
 
   function addItem(item) {
@@ -51,6 +41,31 @@ function CartService(UserService) {
     return cart;
   }
 
+    function decreaseItem(item) {
+    var cart = getCart();
+    var existingItem = cart.find(i => i._id === item._id);
+    if(existingItem && existingItem.qty > 1) {
+      existingItem.qty--;
+    }else if(existingItem && existingItem.qty >= 1) {
+      cart.splice(existingItem, 1);
+    }else{
+      console.log('nothing');
+    }
+    updateCart(cart);
+    console.log(cart);
+    return cart;
+  }
+
+  // function getTotal() {
+  //   var total = 0;
+  //   var cart = getCart();
+  //   for(var i = 0; i < cart.length; i++){
+  //       var product = cart[i];
+  //       total += (product.price * product.qty);
+  //   }
+  //   return total;
+  // }
+
   function getCart() {
     var key = getCartKey();
     var cart = localStorage.getItem(key);
@@ -61,6 +76,7 @@ function CartService(UserService) {
       return [];
     }
   }
+
 
 
   // Helper Functions
