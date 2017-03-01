@@ -4,7 +4,8 @@ var ObjectId = require('mongoose').Schema.Types.ObjectId;
 module.exports = {
   getAllOrders,
   getOrder,
-  createOrder
+  createOrder,
+  deleteOrder
   // deleteProduct,
   // updateProduct,
   // addReview,
@@ -28,6 +29,12 @@ function createOrder(req, res, next) {
   req.body.user = req.user._id;
   Order.create(req.body).then(newOrder => {
     res.status(201).json(newOrder);
+  }).catch(err => res.status(400).json(err));
+}
+
+function deleteOrder(req, res, next) {
+  Order.findByIdAndRemove(req.params.id).then(deletedOrder => {
+    res.json(deletedOrder);
   }).catch(err => res.status(400).json(err));
 }
 

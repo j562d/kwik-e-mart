@@ -37,6 +37,11 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
       return total;
   }
 
+  vm.delOrder = function(order) {
+    order.$delete(function() {
+      vm.orders.splice(vm.orders.findIndex(t => t._id === order._id), 1);
+    });
+  };
 
 }
 

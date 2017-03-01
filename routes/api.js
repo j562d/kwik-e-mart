@@ -31,6 +31,7 @@ router.delete('/reviews/:id', productCtrl.deleteReview);
 router.get('/orders', orderCtrl.getAllOrders);
 router.get('/orders/:id', orderCtrl.getOrder);
 router.post('/orders', orderCtrl.createOrder);
+router.delete('/orders/:id', orderCtrl.deleteOrder);
 
 
 module.exports = router;
