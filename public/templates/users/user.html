@@ -1,5 +1,22 @@
-<ul ng-repeat="x in navCtrl.getUser().address track by $index">
+<!-- <ul ng-repeat="x in navCtrl.getUser().address track by $index">
   <li>Street: {{x.street}}</li>
   <li>City: {{x.city}}</li>
   <li>Zipcode: {{x.zipcode}}</li>
+</ul> -->
+
+<!-- <div ng-controller="OrdersController as orderCtrl"> -->
+<ul ng-repeat="order in orderCtrl.orders track by $index">
+  <li>Order#: {{order._id}}</li>
+ <li>Order Total: ${{order.total}}</li>
+ <li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>
+
+  <ul ng-repeat="item in order.items track by $index">
+<li>Product: {{item.name}}</li>
+<img ng-src='{{item.imageURL}}' height="60" width="60"> ${{item.price}} | QTY: {{item.qty}}
 </ul>
+<!--   <li>Total: ${{o.total}}</li> -->
+
+</ul>
+<!-- </div> -->
+
+

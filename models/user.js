@@ -27,7 +27,7 @@ var userSchema = new Schema({
   email: {type: String, lowercase: true, unique: true},
   password: String,
   address: [addressSchema],
-  orders: [orderSchema]
+  orders: {type: Schema.Types.ObjectId, ref: 'Order'}
 });
 
 userSchema.pre('save', function(next) {

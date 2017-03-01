@@ -63,14 +63,21 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('user', {
       url: '/user/:userId',
       templateUrl: 'templates/users/user.html',
-      controller: 'UserController as userCtrl'
-    });
+      controller: 'OrdersController as orderCtrl'
+    })
 
     // .state('editProduct', {
     //   url: '/products/:productId/edit',
     //   templateUrl: 'templates/products/edit.html',
     //   controller: 'ProductsController as pCtrl'
     // });
+
+    .state('checkout', {
+      url: '/checkout',
+      templateUrl: 'templates/products/checkout.html',
+      controller: 'OrdersController as orderCtrl',
+      loginRequired: true
+    });
 
   $urlRouterProvider.otherwise('/home');
 }

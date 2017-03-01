@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var userCtrl = require('../controllers/users');
 var productCtrl = require('../controllers/products');
+var orderCtrl = require('../controllers/orders');
 
 // Public routes (no auth required)
 router.post('/users/login', userCtrl.login);
@@ -26,6 +27,10 @@ router.delete('/products/:id', productCtrl.deleteProduct);
 router.put('/products/:id', productCtrl.updateProduct);
 router.post('/products/:id/reviews', productCtrl.addReview);
 router.delete('/reviews/:id', productCtrl.deleteReview);
+
+router.get('/orders', orderCtrl.getAllOrders);
+router.get('/orders/:id', orderCtrl.getOrder);
+router.post('/orders', orderCtrl.createOrder);
 
 
 module.exports = router;
