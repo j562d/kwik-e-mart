@@ -84,6 +84,19 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/confirmation',
       templateUrl: 'templates/products/confirmation.html',
       controller: 'OrdersController as orderCtrl'
+    })
+
+    .state('editOrder', {
+      url: '/editOrder',
+      templateUrl: 'templates/products/editorder.html',
+      controller: 'OrdersController as orderCtrl',
+      loginRequired: true
+    })
+
+    .state('viewOrder', {
+      url: '/orders/:orderId',
+      templateUrl: 'templates/products/order.html',
+      controller: 'OrdersController as orderCtrl'
     });
 
   $urlRouterProvider.otherwise('/home');

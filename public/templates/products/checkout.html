@@ -1,9 +1,7 @@
-checkout page
 
 <h2>Place your order</h2>
 
-
-<div class="row">
+<div class="col s6">
   <form ng-submit="orderCtrl.addOrder()" class="col s12">
     <div class="input-field">
       <input ng-model="orderCtrl.order.street" autocomplete="off" id="street" type="text" required>
@@ -21,7 +19,7 @@ checkout page
         place order
     </button>
   </form>
-</div>
+
 
 <div class="row">
   <form class="col s12">
@@ -31,3 +29,17 @@ checkout page
     </div>
   </form>
 </div>
+</div>
+
+
+
+<div class="col s6 checkout">
+<div ng-controller="ProductsController as pCtrl">
+<div ng-repeat="p in pCtrl.cart">
+  <img ng-src='{{p.imageURL}}' height="100" width="100"> {{p.name}} | QTY: {{p.qty}} | SubTotal: ${{p.price * p.qty}}
+</div>
+<h3>Grand Total: ${{ pCtrl.getTotal() }}</h3>
+</div>
+</div>
+
+

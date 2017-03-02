@@ -1,0 +1,26 @@
+I'm AN Order!
+
+<!--   <p>{{orderCtrl.order.items}}</p> -->
+
+ <p>Date: {{orderCtrl.order.createdAt}}</p>
+ <p>Total: ${{orderCtrl.order.total}}</p>
+ <p>Street: {{orderCtrl.order.street}}</p>
+ <input type="text" ng-model="orderCtrl.order.street" id="strret">
+ <button class="btn btn-xs btn-info" ng-click="orderCtrl.editOrder(order)">Save</button>
+ <p>City: {{orderCtrl.order.city}}</p>
+ <p>Zipcode: {{orderCtrl.order.zipcode}}</p>
+
+
+<div ng-repeat="item in orderCtrl.order.items">
+{{item.name}}
+{{item.price}}
+<li>{{item.qty}}
+<input type="text" ng-model="item.qty" id="qty">
+ <button class="btn btn-xs btn-info" ng-click="orderCtrl.editOrder(order)">Save</button>
+ <li>
+
+</div>
+
+ <input type="text" ng-model="orderCtrl.order.qty" id="qty">
+ <button class="btn btn-xs btn-info" ng-click="orderCtrl.editOrder(order)">Save</button>
+

@@ -8,7 +8,9 @@ angular.module('app')
 OrderService.$inject = ['$resource'];
 
 function OrderService($resource) {
-  return $resource('/api/orders/:id', {id: '@_id'});
+  return $resource('/api/orders/:id', {id: '@_id'}, {
+    update: { method: 'PUT'}
+  });
   }
 
 

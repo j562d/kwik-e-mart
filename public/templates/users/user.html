@@ -6,10 +6,9 @@
 
 <!-- <div ng-controller="OrdersController as orderCtrl"> -->
 
-<img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50">
 
 <ul ng-repeat="order in orderCtrl.orders track by $index">
-  <li>Order#: {{order._id}}</li>
+  <li ui-sref="viewOrder({orderId: order._id})"><strong>Order#: {{order._id}}</strong></li>
   <li>Order Placed: {{order.createdAt | date: "mediumDate"}}</li>
   <a ng-click="orderCtrl.delOrder(order)" class="secondary-content"><i class="material-icons">delete</i></a>
  <li>Order Total: ${{order.total}}</li>

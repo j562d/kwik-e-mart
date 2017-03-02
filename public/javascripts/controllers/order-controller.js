@@ -22,6 +22,12 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
     });
   }
 
+  if ($stateParams.orderId) {
+    OrderService.get({id: $stateParams.orderId}, function(data) {
+      vm.order = data;
+    });
+  }
+
   vm.addOrder = function() {
     OrderService.save({items:vm.cart, total:vm.getTotal(), street: vm.order.street, city: vm.order.city, zipcode: vm.order.zipcode}, function(order) {
       console.log(order);
@@ -44,6 +50,20 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
       vm.orders.splice(vm.orders.findIndex(t => t._id === order._id), 1);
     });
   };
+
+  vm.editOrder = function(order) {
+    vm.order.$update(function(){
+      console.log(vm.order);
+      $state.go('user');
+    });
+  };
+
+  // vm.removeItem = function(order) {
+  //   var itemIdx = order.findIndex(i => i._id === order._id);
+  //     if(itemIdx != -1) {
+  //      item.splice(itemIdx, 1);
+  //     }
+  // }
 
 }
 

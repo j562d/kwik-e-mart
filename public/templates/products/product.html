@@ -7,6 +7,7 @@ this is the product page
 <h5>Price: ${{pCtrl.product.price}}</h5><br>
 <h4>{{pCtrl.product.description}}</h4><br>
   <button class="btn-warning" ng-click="pCtrl.delProduct(product)" >delete</button>
+  <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="Add to Cart">
 
 
 
@@ -26,7 +27,6 @@ this is the product page
  <input type="text" ng-model="pCtrl.product.sku" id="name">
  <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
 
-    <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="Add to Cart">
 
 <!-- <form ng-submit="pCtrl.createReview()" class="col s12">
 <div>

@@ -1,11 +1,10 @@
-cart page
+
 <br>
 <br>
 <br>
 
 <h3 ng-hide="pCtrl.cart.length">Your cart is empty!</h3>
 <div ng-repeat="p in pCtrl.cart">
-<div ng-show=""></div>
 
 <table>
 <tr>
@@ -33,6 +32,7 @@ cart page
 
 
 </div>
-<h3>Grand Total: ${{ pCtrl.getTotal() }} </h3>
-<a ui-sref="checkout">Proceed to Checkout</a>
+<h3 ng-show="pCtrl.cart.length">Grand Total: ${{ pCtrl.getTotal() }} </h3>
+<a ng-show="pCtrl.cart.length" ui-sref="checkout">Proceed to Checkout</a>
+<img ng-hide="pCtrl.cart.length" src="http://i.imgur.com/rkNPtfr.png" height="500" width="400">
 
