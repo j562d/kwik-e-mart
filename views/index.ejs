@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
-    <title><%= title %></title>
+    <title>Kwik-E-Mart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -12,60 +12,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   </head>
-
-
   <body ng-controller="NavController as navCtrl">
-*****
+
+    <ul id="logged-out-dropdown" class="dropdown-content">
+      <li><a ui-sref="login">Log In</a></li>
+      <li><a ui-sref="signup">Sign Up</a></li>
+    </ul>
+
+    <ul id="logged-in-dropdown" class="dropdown-content">
+      <li><a ui-sref="user" class="center-align">Orders</a></li>
+      <li class="divider"></li>
+      <li><a ng-click="navCtrl.logout()">Log Out</a></li>
+    </ul>
+
   <nav class="nav-extended">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo"><img src="https://hinduperspective.files.wordpress.com/2014/02/apu.png" height="50" width="50"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>{{navCtrl.getUser().name}}</li>
+<!--         <li>{{navCtrl.getUser().name}}</li>
         <li><a ui-sref="user">Your Account</a></li>
-        <li><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li> -->
+        <!-- <li ng-show="navCtrl.isLoggedIn()">Welcome {{navCtrl.getUser().name}}!</li> -->
+        <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown">Sign In!</a></li>
+        <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown">{{navCtrl.getUser().name}}</a></li>
+        <li ui-sref-active="cart"><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li>
       </ul>
     </div>
-<!--     <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a ng-click="myFilter = { }">All</a></li>
-        <li class="tab"><a ng-click="myFilter = {category: 'food'}">Food</a></li>
-        <li class="tab"><a ng-click="myFilter = {category: 'toys'}">Toys</li>
-        <li class="tab"><input ng-model="search"></li>
-      </ul>
-    </div> -->
   </nav>
 
-
-
-
-
-
-
-
-****
-      <a ng-hide="navCtrl.isLoggedIn()" ui-sref="login">Log In</a><br>
-      <a ng-hide="navCtrl.isLoggedIn()" ui-sref="signup">Sign Up</a><br>
-      <a ng-show="navCtrl.isLoggedIn()" ng-click="navCtrl.logout()">Log Out</a><br>
-
-
-
-
-
-
-
     <div class="row">
-
-
-
-        <div ui-view class="container"></div>
+      <div ui-view class="container"></div>
 
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/materialize.js"></script>
