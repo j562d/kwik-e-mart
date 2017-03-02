@@ -23,15 +23,26 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
+//app.use( require('./config/auth') );
+app.use( require('./config/auth').verifyToken );
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use( require('./config/auth') );
-// app.use( require('./config/auth').verifyToken );
-
 app.use('/', index);
 // app.use('/users', users);
-app.use('/api', apiRoutes);
+// app.use('/api', apiRoutes);
+app.use('/api',
+ function(req, res, next) {
+   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+   res.header('Expires', '-1');
+   res.header('Pragma', 'no-cache');
+   next();
+ },
+ apiRoutes
+ );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

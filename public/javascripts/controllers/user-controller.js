@@ -21,7 +21,7 @@ function UserController($state, UserService) {
     UserService.login(vm.user).then(function() {
       $state.go('home');
     }, function() {
-      $state.go('home');
+      $state.go('login');
     });
     vm.user = {};
   };
