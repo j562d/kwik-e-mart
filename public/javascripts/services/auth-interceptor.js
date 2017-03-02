@@ -1,3 +1,4 @@
+
 angular.module('app')
   .factory('AuthInterceptor', AuthInterceptor);
 
@@ -12,11 +13,10 @@ function AuthInterceptor(TokenService) {
       return config;
     },
 
-    response: function(response) {
+    response: function (response) {
       var token = response.headers('Authorization');
       if (token) TokenService.setToken(token);
       return response;
     }
-
-  };
+  }
 }

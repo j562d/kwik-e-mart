@@ -13,7 +13,6 @@ function NavController($state, UserService, CartService, TokenService) {
 
   vm.logout = function() {
     UserService.logout();
-    // TokenService.removeToken();
     $state.go('home');
   };
 

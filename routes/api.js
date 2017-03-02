@@ -6,12 +6,12 @@ var orderCtrl = require('../controllers/orders');
 
 // Public routes (no auth required)
 router.post('/users/login', userCtrl.login);
-router.get('/products', productCtrl.getAllProducts);
-router.get('/products/:id', productCtrl.getProduct);
 router.get('/users/logout', userCtrl.logout);
 router.post('/users', userCtrl.create);
 router.get('/users/me', userCtrl.me);
 
+router.get('/products', productCtrl.getAllProducts);
+router.get('/products/:id', productCtrl.getProduct);
 
 // Auth middleware (routes below need authentication)
 router.use(function(req, res, next) {

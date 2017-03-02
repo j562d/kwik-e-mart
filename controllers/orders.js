@@ -45,16 +45,6 @@ function updateOrder(req, res, next) {
   }).catch(err => res.status(500).json(err));
 }
 
-// function deleteProduct(req, res, next) {
-//   Product.findByIdAndRemove(req.params.id).then(deletedProduct => {
-//     res.json(deletedProduct);
-//   }).catch(err => res.status(400).json(err));
-// }
 
-// function updateProduct(req, res, next) {
-//   Product.findByIdAndUpdate(req.params.id, req.body).exec().then(product => {
-//     res.json(product);
-//   }).catch(err => res.status(500).json(err));
-// }
 
 

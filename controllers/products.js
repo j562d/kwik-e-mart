@@ -19,7 +19,13 @@ function getAllProducts(req, res, next) {
 
 
 function getProduct(req, res, next) {
-  Product.findById(req.params.id).exec().then(product => {
+  Product.findById(req.params.id).populate({
+     path: 'reviews',
+     populate: {
+       path: 'reviewer',
+       model: 'User'
+     }
+  }).exec().then(product => {
     res.json(product);
   }).catch(err => res.status(500).json(err));
 }
