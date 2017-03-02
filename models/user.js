@@ -27,7 +27,9 @@ var userSchema = new Schema({
   email: {type: String, lowercase: true, unique: true},
   password: String,
   address: [addressSchema],
-  orders: {type: Schema.Types.ObjectId, ref: 'Order'}
+  orders: {type: Schema.Types.ObjectId, ref: 'Order'},
+  avatar: {type: String,
+            default: "http://i.imgur.com/OCUOqIg.jpg"}
 });
 
 userSchema.pre('save', function(next) {

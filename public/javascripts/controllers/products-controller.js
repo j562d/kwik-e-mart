@@ -39,6 +39,8 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
   vm.addItemToCart = function(item) {
     CartService.addItem(item);
     $state.reload();
+    Materialize.toast('added to cart!', 3000)
+
   }
 
   vm.addItemToCartView = function(product) {
@@ -72,6 +74,7 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
       productService.addreview({productId: $stateParams.productId, text: vm.text, rating: vm.rating}, function(product) {
           vm.product = product;
           vm.text = '';
+          vm.rating = '';
           console.log(product);
       });
   }

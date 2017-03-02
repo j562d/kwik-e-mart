@@ -53,12 +53,25 @@ this is the product page
 <form ng-submit="pCtrl.createReview()">
         <div class="form-group">
         <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
-        <input ng-model="pCtrl.rating" autocomplete="off" type="textarea" class="form-control" placeholder="rating">
+        <!-- <input ng-model="pCtrl.rating" autocomplete="off" type="textarea" class="form-control" placeholder="rating"> -->
+        <label for="rating">Rating: </label>
+        <select name="rating" id="rating" ng-model="pCtrl.rating" class="form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
       </div>
       <button class="btn btn-default" type="submit">Add Comment</button>
  </form><br>
 
     <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
-      <div class="panel-header">&nbsp;&nbsp;{{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
-      <div class="panel-body"><strong>{{review.text}}</strong></div>
+      <div class="panel-header">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
+      <div class="panel-body">
+        <strong>Review:</strong> {{review.text}}<br>
+        <strong>Rating:</strong> {{review.rating}}/5
+      </div>
     </div>
+
+

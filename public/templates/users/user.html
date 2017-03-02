@@ -5,8 +5,12 @@
 </ul> -->
 
 <!-- <div ng-controller="OrdersController as orderCtrl"> -->
+
+<img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50">
+
 <ul ng-repeat="order in orderCtrl.orders track by $index">
   <li>Order#: {{order._id}}</li>
+  <li>Order Placed: {{order.createdAt | date: "mediumDate"}}</li>
   <a ng-click="orderCtrl.delOrder(order)" class="secondary-content"><i class="material-icons">delete</i></a>
  <li>Order Total: ${{order.total}}</li>
  <li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>

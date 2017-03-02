@@ -1,5 +1,6 @@
-<h2>Welcome {{navCtrl.getUser().name}}!</h2>
+<h2>{{navCtrl.getUser().name}}</h2>
 <a ui-sref="user">Account</a>
+<img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50">
 <!-- welcome {{navCtrl.getUser().address}} -->
 
 <!-- <h4 ng-show="navCtrl.isLoggedIn()">Address:</h4> -->
@@ -19,26 +20,77 @@
 
 <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
 
+
+
+
+<!--   <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="http://i.imgur.com/I6RSiyb.png">
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2">
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3">
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4">
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div> -->
+
+
+
+
+
+
+
+
 <div ng-controller="ProductsController as pCtrl">
-  <ul ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
+  <div ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
 
 
-  <div class="col-md-4">
-    <div class="card" style="width: 20rem;">
-      <img class="card-img-top" ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" alt="Card image cap" height="300" width="300">
-      <div class="card-block">
-      <h4 class="card-title">{{product.name}}</h4>
-<!--       <p class="card-text">{{product.description}}</p> -->
-      <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(product)" value="BUY">
-      <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(product)" value="Delete">
+
+    <div class="col s2 m2">
+      <div class="card">
+        <div class="card-image">
+          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}">
+<!--           <span class="card-title">{{product.name}}</span> -->
+          <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i class="material-icons">Add</i></a>
+        </div>
+        <div class="card-content">
+          <h3>{{product.name}}</h3>
+          <h5>${{product.price}}</h5>
+        </div>
       </div>
     </div>
+
+
   </div>
-<!--     <li><a ui-sref="viewProduct({productId: product._id})">{{product.name}}</a></li>
-    <li>{{product.description}}</li>
-    <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(product)" value="BUY">
-    <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(product)" value="Delete">
-    <li><img ui-sref="viewProduct({productId: product._id})" ng-src='{{product.imageURL}}' height="300" width="300"></li> -->
-  </ul>
 </div>
 
+
+
+
+
+
+HELLO!!!!
+
+<script src="/javascripts/materialize.js"></script>

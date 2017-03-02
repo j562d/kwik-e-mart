@@ -63,7 +63,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('user', {
       url: '/user/:userId',
       templateUrl: 'templates/users/user.html',
-      controller: 'OrdersController as orderCtrl'
+      controller: 'OrdersController as orderCtrl',
+      loginRequired: true
     })
 
     // .state('editProduct', {
@@ -77,6 +78,12 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'templates/products/checkout.html',
       controller: 'OrdersController as orderCtrl',
       loginRequired: true
+    })
+
+    .state('confirmation', {
+      url: '/confirmation',
+      templateUrl: 'templates/products/confirmation.html',
+      controller: 'OrdersController as orderCtrl'
     });
 
   $urlRouterProvider.otherwise('/home');

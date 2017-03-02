@@ -9,11 +9,9 @@ a {
   color: #00B7FF;
 }
 
-
 .apu {
   float: left;
 }
-
 
 .col-md-4 {
   border: 1px solid black;
@@ -47,4 +45,8 @@ td {
 .arrow {
   border: 1px solid black;
   margin: 5px;
+}
+
+.card {
+  border: 3px solid black;
 }
