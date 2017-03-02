@@ -25,6 +25,7 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
   vm.addOrder = function() {
     OrderService.save({items:vm.cart, total:vm.getTotal(), street: vm.order.street, city: vm.order.city, zipcode: vm.order.zipcode}, function(order) {
       console.log(order);
+      CartService.clearCart();
       $state.go('confirmation');
     });
   };

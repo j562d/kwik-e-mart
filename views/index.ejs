@@ -24,9 +24,8 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>{{navCtrl.getUser().name}}</li>
-        <li><a href="sass.html"><img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50"></a></li>
         <li><a ui-sref="user">Your Account</a></li>
-        <li><a ui-sref="cart">Cart</a></li>
+        <li><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="sass.html">Sass</a></li>
@@ -52,11 +51,9 @@
 
 
 ****
-      <img class="apu" ui-sref="home" src='https://hinduperspective.files.wordpress.com/2014/02/apu.png' height="100" width="100">
       <a ng-hide="navCtrl.isLoggedIn()" ui-sref="login">Log In</a><br>
       <a ng-hide="navCtrl.isLoggedIn()" ui-sref="signup">Sign Up</a><br>
       <a ng-show="navCtrl.isLoggedIn()" ng-click="navCtrl.logout()">Log Out</a><br>
-      <a ui-sref="cart">Cart: {{navCtrl.cart.length}}</a><br>
 
 
 

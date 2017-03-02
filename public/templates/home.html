@@ -1,6 +1,6 @@
 <h2>{{navCtrl.getUser().name}}</h2>
 <a ui-sref="user">Account</a>
-<img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50">
+<!-- <img ng-src="{{navCtrl.getUser().avatar}}" height="50" width="50"> -->
 <!-- welcome {{navCtrl.getUser().address}} -->
 
 <!-- <h4 ng-show="navCtrl.isLoggedIn()">Address:</h4> -->
@@ -73,7 +73,7 @@
         <div class="card-image">
           <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}">
 <!--           <span class="card-title">{{product.name}}</span> -->
-          <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i class="material-icons">add</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
         </div>
         <div class="card-content">
           <h3>{{product.name}}</h3>

@@ -12,29 +12,24 @@ module.exports = {
 
 function create(req, res, next) {
   User.create(req.body).then(user => {
-    var token = jwt.sign({
-      user: user
-    }, SECRET, {expiresIn: '30m'});
-    res.set('Authorization', token);
-    res.json({msg: 'logged in successfully'});
+    auth.createToken(user, res);
+    res.json({msg: 'signed up successfully'});
   }).catch( err => res.status(400).json(err) );
 }
+
 
 function login(req, res, next) {
   User.findOne({email: req.body.email}).exec().then(user => {
     if (!user) return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.password, (err, isMatch) => {
       if (isMatch) {
-        var token = jwt.sign({
-          user: user
-        }, SECRET, {expiresIn: '30m'});
-        res.set('Authorization', token);
+        auth.createToken(user, res);
         res.json({msg: 'logged in successfully'});
       } else {
-        return res.status(401).json({err: 'bad credentials'});
+        return res.status(401).json({err: 'Incorrect emailor password'});
       }
     });
-  }).catch(err => res.status(401).json(err));
+  }).catch(err => res.status(401).json('Error occured: ' + err));
 }
 
 function logout(req, res, next) {

@@ -20,13 +20,13 @@ cart page
 <td><h4>{{p.name}}</h4></td>
 <td>Price: ${{p.price}}</td>
 <td>
-  <a class="arrow" ng-click="pCtrl.decreaseItem(p)">&#8595;</a>
+  <strong class="arrow" ng-click="pCtrl.decreaseItem(p)">^</strong>
   Quantity: {{p.qty}}
-  <a class="arrow" ng-click="pCtrl.addItemToCart(p)">&#8593;</a>
+  <strong class="arrow" ng-click="pCtrl.increaseItem(p)">v</strong>
 </td>
 <td><strong>SubTotal: ${{p.price * p.qty}}</strong></td>
 <td><input class="btn btn-warning" type="button" ng-click="pCtrl.decreaseItem(p)" value="Decrease"></td>
-<td><input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(p)" value="Increase"></td>
+<td><input class="btn btn-success" type="button" ng-click="pCtrl.increaseItem(p)" value="Increase"></td>
 <td><input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="REMOVE"></td>
 </tr>
 </table>

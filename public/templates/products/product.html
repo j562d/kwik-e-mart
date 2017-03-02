@@ -26,8 +26,7 @@ this is the product page
  <input type="text" ng-model="pCtrl.product.sku" id="name">
  <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
 
-    <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="BUY">
-    <input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(pCtrl.product)" value="Delete">
+    <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="Add to Cart">
 
 <!-- <form ng-submit="pCtrl.createReview()" class="col s12">
 <div>
@@ -48,9 +47,8 @@ this is the product page
 <!--  <button class="btn btn-xs btn-info" ng-click="pCtrl.createReview(product)">review</button>
 
  -->
-{{pCtrl.product.reviews}}
 
-<form ng-submit="pCtrl.createReview()">
+<form ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
         <div class="form-group">
         <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
         <!-- <input ng-model="pCtrl.rating" autocomplete="off" type="textarea" class="form-control" placeholder="rating"> -->
@@ -67,7 +65,7 @@ this is the product page
  </form><br>
 
     <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
-      <div class="panel-header">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
+      <div class="panel-header">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-show="review.reviewer == navCtrl.getUser()._id" ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
       <div class="panel-body">
         <strong>Review:</strong> {{review.text}}<br>
         <strong>Rating:</strong> {{review.rating}}/5
