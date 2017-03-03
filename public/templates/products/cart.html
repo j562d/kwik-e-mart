@@ -21,6 +21,6 @@
   </tbody>
 </table>
 <h3 ng-show="pCtrl.cart.length">Grand Total: ${{ pCtrl.getTotal() }} </h3>
-<a ng-show="pCtrl.cart.length" ui-sref="checkout">Proceed to Checkout</a>
+<button class="waves-effect waves-light btn green darken-2" ng-show="pCtrl.cart.length" ui-sref="checkout">Proceed to Checkout</button>
 <img ng-hide="pCtrl.cart.length" src="http://i.imgur.com/rkNPtfr.png" height="500" width="400">
 

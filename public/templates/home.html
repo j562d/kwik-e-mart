@@ -12,13 +12,12 @@
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'toys'}">Toys</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'electronics'}">Electronics</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'other'}">Other</button> |
-<li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
 <div ng-controller="ProductsController as pCtrl">
   <div ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
-    <div class="col s3 m3">
+    <div class="col s2 m2">
       <div class="card">
         <div class="card-image">
-          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" height="300" width="200">
+          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}">
           <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
         </div>
         <div class="card-content">
@@ -29,3 +28,7 @@
     </div>
   </div>
 </div>
+
+<!-- The code below is to Add a new produt. I will implement later in the future when I set up Admin accounts. -->
+<!-- <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
+ -->
