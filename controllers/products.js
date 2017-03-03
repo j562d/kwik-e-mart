@@ -52,7 +52,6 @@ function addReview(req, res) {
     Product.findById(req.params.id)
     .then(product => {
         product.reviews.push({
-            //req.body.text - if just a string - no an object
             text: req.body.text,
             rating: req.body.rating,
             reviewer: req.user._id

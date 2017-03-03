@@ -11,6 +11,6 @@ function OrderService($resource) {
   return $resource('/api/orders/:id', {id: '@_id'}, {
     update: { method: 'PUT'}
   });
-  }
+}
 
 })();

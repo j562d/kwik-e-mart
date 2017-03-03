@@ -43,6 +43,7 @@ Click on the Heroku link below to go to the web store. Guest users can freely br
 - Allow users to edit their reviews.
 - Allow users to edit each individual item in already placed orders. 
 - Add Regular Expressions to validate credit cards.
+- Add a "wishlist" feature.
 
 ## Major Hurdles
 - I struggled with combining AngularJs with Node and Express. Understanding when and where to put code on the client side or server side.
@@ -50,3 +51,6 @@ Click on the Heroku link below to go to the web store. Guest users can freely br
 - Using Angular binding expressions to display nested values.
 - Classifying my products with categories.
 
+## Pending Issues
+- Certain values would only update on a full page refresh.
+- Displaying reviewer's name with their review.

@@ -16,9 +16,9 @@ function productService($resource) {
     deletereview: {method: 'DELETE',
                 url: '/api/reviews/:reviewId',
                 params: {reviewId: '@reviewId'}
-            }
-    });
-  }
+                }
+  });
+}
 
 
 })();

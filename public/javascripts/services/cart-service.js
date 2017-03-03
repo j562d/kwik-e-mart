@@ -67,6 +67,7 @@ function CartService(UserService) {
     var user = UserService.getUser();
     return user ? "cart:" + user._id : "cart:guest";
   }
+
   function updateCart(cart) {
     var key = getCartKey();
     localStorage.setItem(key, JSON.stringify(cart));
