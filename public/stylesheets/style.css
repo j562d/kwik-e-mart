@@ -28,7 +28,7 @@ a {
   border: 1px solid black;
 }
 
-table, th, tr, td{
+/*table, th, tr, td{
   border: 1px solid black;
 }
 
@@ -39,7 +39,7 @@ table {
 
 td {
   text-align: center;
-}
+}*/
 
 .arrow {
   border: 1px solid black;

@@ -1,8 +1,21 @@
 <h2>{{navCtrl.getUser().name}}</h2>
 
-<p>
+<!-- <p>
     <strong>Search for a Product: <input ng-model="search"></strong>
-</p>
+</p> -->
+
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">search</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" ng-model="search">
+          <label for="autocomplete-input">Search for a product!</label>
+        </div>
+      </div>
+    </div>
+
+
+
   <h3> Shop by Category </h3>
   <button class="btn-info btn-lg" ng-click="myFilter = { }">All</button> |
   <button class="btn-info btn-lg" ng-click="myFilter = {category: 'food'}">Food</button> |
@@ -61,7 +74,7 @@
     <div class="col s2 m2">
       <div class="card">
         <div class="card-image">
-          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}">
+          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" height="200" width="200">
 <!--           <span class="card-title">{{product.name}}</span> -->
           <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
         </div>
@@ -77,5 +90,5 @@
 </div>
 
 
-
-<script src="/javascripts/materialize.js"></script>
+<!-- <script src="/javascripts/materialize.js"></script>
+ -->

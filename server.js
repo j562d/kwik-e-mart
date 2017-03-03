@@ -23,8 +23,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-//app.use( require('./config/auth') );
 app.use( require('./config/auth').verifyToken );
 
 app.use(cookieParser());

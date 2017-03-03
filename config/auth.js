@@ -18,7 +18,7 @@ module.exports.verifyToken = function(req, res, next) {
     jwt.verify(token, SECRET, function(err, decoded) {
       if (!err) {
         req.user = decoded.user;
-        module.exports.createToken(decoded.user, res);
+        // module.exports.createToken(decoded.user, res);
         next();
       }
     });
