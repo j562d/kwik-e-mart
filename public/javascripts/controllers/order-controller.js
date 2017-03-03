@@ -78,6 +78,11 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
   //   });
   // };
 
+  vm.audio = function() {
+    document.getElementById('audio');
+    audio.play();
+  }
+
 }
 
 })();

@@ -1,0 +1,33 @@
+
+<h2 class="hi">Please enter your shipping address</h2>
+
+
+<div class="col s6">
+  <form ng-submit="orderCtrl.addOrder()">
+    <div class="form-group">
+      <label class="label-size" for="street">Street</label>
+      <input class="input-size" ng-model="orderCtrl.order.street" ng-init="orderCtrl.order.street=orderCtrl.user.street" autocomplete="off" id="street" type="text" required>
+    </div>
+    <div class="form-group">
+      <label class="label-size" for="city">City</label>
+      <input class="input-size" ng-model="orderCtrl.order.city" ng-init="orderCtrl.order.city=orderCtrl.user.city" autocomplete="off" id="city" type="text" required>
+    </div>
+    <div class="form-group">
+      <label class="label-size" for="zipcode">Zipcode</label>
+      <input class="input-size" ng-model="orderCtrl.order.zipcode" ng-init="orderCtrl.order.zipcode=orderCtrl.user.zipcode" autocomplete="off" id="zipcode" type="text" required>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Confirm Order
+    </button>
+  </form>
+
+
+<div class="col s6 checkout">
+<div ng-controller="ProductsController as pCtrl">
+<div ng-repeat="p in pCtrl.cart">
+  <img ng-src='{{p.imageURL}}' height="100" width="100"> {{p.name}} | QTY: {{p.qty}} | SubTotal: ${{p.price * p.qty}}
+</div>
+<h3>Grand Total: ${{ pCtrl.getTotal() }}</h3>
+</div>
+</div>
+

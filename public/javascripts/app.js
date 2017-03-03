@@ -62,35 +62,35 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
 
     .state('user', {
       url: '/user/:userId',
-      templateUrl: 'templates/users/user.html',
+      templateUrl: 'templates/orders/orders.html',
       controller: 'OrdersController as orderCtrl',
       loginRequired: true
     })
 
     .state('checkout', {
       url: '/checkout',
-      templateUrl: 'templates/products/checkout.html',
+      templateUrl: 'templates/orders/checkout.html',
       controller: 'OrdersController as orderCtrl',
       loginRequired: true
     })
 
     .state('confirmation', {
       url: '/confirmation',
-      templateUrl: 'templates/products/confirmation.html',
+      templateUrl: 'templates/orders/confirmation.html',
       controller: 'OrdersController as orderCtrl',
       loginRequired: true
     })
 
-    .state('editOrder', {
-      url: '/editOrder',
-      templateUrl: 'templates/products/editorder.html',
-      controller: 'OrdersController as orderCtrl',
-      loginRequired: true
-    })
+    // .state('editOrder', {
+    //   url: '/editOrder',
+    //   templateUrl: 'templates/products/editorder.html',
+    //   controller: 'OrdersController as orderCtrl',
+    //   loginRequired: true
+    // })
 
     .state('viewOrder', {
       url: '/orders/:orderId',
-      templateUrl: 'templates/products/order.html',
+      templateUrl: 'templates/orders/order.html',
       controller: 'OrdersController as orderCtrl',
       loginRequired: true
     });

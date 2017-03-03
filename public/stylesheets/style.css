@@ -75,6 +75,22 @@ td {
 }
 
 .nav-extended {
-  background-image: url("http://www.sidehustlenation.com/wp-content/uploads/2014/01/apu-kwik-e-mart.jpg");
+  /*background-image: url("http://www.sidehustlenation.com/wp-content/uploads/2014/01/apu-kwik-e-mart.jpg");*/
+
 }
 
+.audio {
+  display: none;
+}
+
+.center-form {
+  text-align: center;
+}
+
+.input-size {
+  font-size: 20px !important;
+}
+
+.label-size {
+  font-size: 15px !important;
+}

@@ -1,17 +1,26 @@
-<h2>Log In</h2>
-<div class="row">
+<div class="row center-form">
+  <h2>Log In</h2>
+  <br>
+  <br>
   <form ng-submit="userCtrl.login()" class="col s12">
-    <div class="input-field">
-      <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="email" required>
-      <label for="email">Email</label>
+    <div class="form-group">
+      <h4>Email</h4>
+      <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="textarea" required>
     </div>
-    <div class="input-field">
-      <input ng-model="userCtrl.user.password" autocomplete="off" id="password" type="password" required>
-      <label for="password">Password</label>
+    <div class="form-group">
+      <h4>Password</h4>
+      <input ng-model="userCtrl.user.password" autocomplete="off" id="password" type="textarea" required>
     </div>
-    <button class="waves-effect waves-light btn"type="submit" name="action">Log In</button>
+    <button class="waves-effect waves-light btn green darken-2"type="submit" name="action">Log In</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </form>
-
   Dont' have an account? Create one!
-      <button class="waves-effect waves-light btn" ui-sref="signup">Sign Up</button><br>
+  <br>
+    <button class="waves-effect waves-light btn orange darken-1" ui-sref="signup">Sign Up</button><br>
 </div>
+
+
