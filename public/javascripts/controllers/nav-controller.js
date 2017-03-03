@@ -21,6 +21,4 @@ function NavController($state, UserService, CartService, TokenService) {
 
 }
 
-
-
 })();

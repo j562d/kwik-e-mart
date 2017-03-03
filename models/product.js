@@ -15,7 +15,6 @@ var reviewSchema = new Schema ({
               default: Date.now}
 });
 
-
 var productSchema = new Schema({
   name: String,
   sku: Number,
@@ -25,7 +24,5 @@ var productSchema = new Schema({
   imageURL: String,
   reviews: [reviewSchema]
 });
-
-
 
 module.exports = mongoose.model('Product', productSchema);

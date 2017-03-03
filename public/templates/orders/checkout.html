@@ -1,7 +1,4 @@
-
 <h2 class="hi">Please enter your shipping address</h2>
-
-
 <div class="col s6">
   <form ng-submit="orderCtrl.addOrder()">
     <div class="form-group">
@@ -20,14 +17,13 @@
         Confirm Order
     </button>
   </form>
-
-
+</div>
 <div class="col s6 checkout">
-<div ng-controller="ProductsController as pCtrl">
-<div ng-repeat="p in pCtrl.cart">
-  <img ng-src='{{p.imageURL}}' height="100" width="100"> {{p.name}} | QTY: {{p.qty}} | SubTotal: ${{p.price * p.qty}}
-</div>
-<h3>Grand Total: ${{ pCtrl.getTotal() }}</h3>
-</div>
+  <div ng-controller="ProductsController as pCtrl">
+    <div ng-repeat="p in pCtrl.cart">
+      <img ng-src='{{p.imageURL}}' height="100" width="100"> {{p.name}} | QTY: {{p.qty}} | SubTotal: ${{p.price * p.qty}}
+    </div>
+    <h3>Grand Total: ${{ pCtrl.getTotal() }}</h3>
+  </div>
 </div>
 

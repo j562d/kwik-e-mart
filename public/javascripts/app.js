@@ -81,13 +81,6 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       loginRequired: true
     })
 
-    // .state('editOrder', {
-    //   url: '/editOrder',
-    //   templateUrl: 'templates/products/editorder.html',
-    //   controller: 'OrdersController as orderCtrl',
-    //   loginRequired: true
-    // })
-
     .state('viewOrder', {
       url: '/orders/:orderId',
       templateUrl: 'templates/orders/order.html',

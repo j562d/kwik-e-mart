@@ -7,10 +7,6 @@ module.exports = {
   createOrder,
   deleteOrder,
   updateOrder
-  // deleteProduct,
-  // updateProduct,
-  // addReview,
-  // deleteReview
 };
 
 function getAllOrders(req, res, next) {
@@ -18,7 +14,6 @@ function getAllOrders(req, res, next) {
     res.json(orders);
   }).catch(err => res.status(500).json(err));
 }
-
 
 function getOrder(req, res, next) {
   Order.findById(req.params.id).exec().then(order => {
@@ -44,8 +39,3 @@ function updateOrder(req, res, next) {
     res.json(order);
   }).catch(err => res.status(500).json(err));
 }
-
-
-
-
-

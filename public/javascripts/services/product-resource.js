@@ -1,7 +1,6 @@
 (function () {
 'use strict';
 
-
 angular.module('app')
   .factory('productService', productService);
 
@@ -20,8 +19,6 @@ function productService($resource) {
             }
     });
   }
-
-
 
 
 })();

@@ -17,7 +17,6 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
 
   vm.orders = OrderService.query();
 
-
   if ($stateParams.productId) {
     productService.get({id: $stateParams.productId}, function(data) {
       vm.product = data;
@@ -32,8 +31,7 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
 
   vm.addOrder = function() {
     OrderService.save({items:vm.cart, total:vm.getTotal(), street: vm.order.street, city: vm.order.city, zipcode: vm.order.zipcode}, function(order) {
-      console.log(order);
-      CartService.clearCart();
+      CartService.emptyCart();
       $state.go('confirmation');
     });
   };
@@ -55,28 +53,9 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
 
   vm.editOrder = function(order) {
     vm.order.$update(function(){
-      console.log(vm.order);
       $state.go('user');
     });
   };
-
-  // vm.removeItem = function(order) {
-  //   var itemIdx = order.findIndex(i => i._id === order._id);
-  //     if(itemIdx != -1) {
-  //      item.splice(itemIdx, 1);
-  //     }
-  // }
-
-  // vm.selectItem = function(item) {
-  //   vm.itemEditing = item;
-  //   console.log(item);
-  // };
-
-  // vm.doneEditing = function(item) {
-  //   item.$update(function(){
-  //     vm.itemEditing = null;
-  //   });
-  // };
 
   vm.audio = function() {
     document.getElementById('audio');

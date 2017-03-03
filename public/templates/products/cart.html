@@ -1,62 +1,25 @@
-
-<br>
-<br>
-<br>
-
 <h3 ng-hide="pCtrl.cart.length">Your cart is empty!</h3>
-<!-- <div ng-repeat="p in pCtrl.cart"> -->
-
-<!-- <table>
-<tr>
-  <th></th>
-  <th>Product</th>
-  <th>Price</th>
-  <th>Quantity</th>
-  <th>Subtotal</th>
-</tr>
-</tr>
-<td><img class="float" ng-src='{{p.imageURL}}' height="100" width="100"></td>
-<td><h4>{{p.name}}</h4></td>
-<td>Price: ${{p.price}}</td>
-<td>
-  <strong class="arrow" ng-click="pCtrl.decreaseItem(p)">v</strong>
-  Quantity: {{p.qty}}
-  <strong class="arrow" ng-click="pCtrl.increaseItem(p)">^</strong>
-</td>
-<td><strong>SubTotal: ${{p.price * p.qty}}</strong></td>
-<td><input class="btn btn-warning" type="button" ng-click="pCtrl.decreaseItem(p)" value="Decrease"></td>
-<td><input class="btn btn-success" type="button" ng-click="pCtrl.increaseItem(p)" value="Increase"></td>
-<td><input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="REMOVE"></td>
-</tr>
+<table ng-show="pCtrl.cart.length" class="bordered">
+  <thead>
+    <tr>
+      <th data-field="image"> </th>
+      <th data-field="id">Product</th>
+      <th data-field="name">Price</th>
+      <th data-field="price">Quantity</th>
+      <th data-field="subtotal">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="p in pCtrl.cart">
+      <td><img class="float" ng-src='{{p.imageURL}}' height="100" width="100"></td>
+      <td><h4>{{p.name}}</h4></td>
+      <td>${{p.price}}</td>
+      <td><strong class="arrow" ng-click="pCtrl.decreaseItem(p)">-</strong>{{p.qty}}<strong class="arrow" ng-click="pCtrl.increaseItem(p)">+</strong></td>
+      <td><strong>SubTotal: ${{p.price * p.qty}}</strong></td>
+      <td><input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="REMOVE"></td>
+    </tr>
+  </tbody>
 </table>
-
- -->
-      <table ng-show="pCtrl.cart.length" class="bordered">
-        <thead>
-          <tr>
-              <th data-field="image"> </th>
-              <th data-field="id">Product</th>
-              <th data-field="name">Price</th>
-              <th data-field="price">Quantity</th>
-              <th data-field="subtotal">Subtotal</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="p in pCtrl.cart">
-            <td><img class="float" ng-src='{{p.imageURL}}' height="100" width="100"></td>
-            <td><h4>{{p.name}}</h4></td>
-            <td>${{p.price}}</td>
-            <td><strong class="arrow" ng-click="pCtrl.decreaseItem(p)">-</strong>{{p.qty}}<strong class="arrow" ng-click="pCtrl.increaseItem(p)">+</strong></td>
-            <td><strong>SubTotal: ${{p.price * p.qty}}</strong></td>
-            <td><input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="REMOVE"></td>
-          </tr>
-        </tbody>
-      </table>
-
-
-
-</div>
 <h3 ng-show="pCtrl.cart.length">Grand Total: ${{ pCtrl.getTotal() }} </h3>
 <a ng-show="pCtrl.cart.length" ui-sref="checkout">Proceed to Checkout</a>
 <img ng-hide="pCtrl.cart.length" src="http://i.imgur.com/rkNPtfr.png" height="500" width="400">

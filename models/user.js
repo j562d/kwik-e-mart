@@ -5,23 +5,6 @@ const SALT_ROUNDS = 6;
 
 var Schema = mongoose.Schema;
 
-// var addressSchema = new Schema ({
-//   street: String,
-//   city: String,
-//   zipcode: Number
-// });
-
-var orderSchema = new Schema ({
-  number: Number,
-  createdAt: {type: Date,
-              default: Date.now},
-  items: [],
-  total: Number,
-  user: {type: Schema.Types.ObjectId, ref: 'User'},
-  shipped: {type: Boolean,
-            default: false}
-});
-
 var userSchema = new Schema({
   name: String,
   email: {type: String, lowercase: true, unique: true},
@@ -50,6 +33,5 @@ userSchema.methods.comparePassword = function(tryPassword, cb) {
     cb(null, isMatch);
   });
 };
-
 
 module.exports = mongoose.model('User', userSchema);

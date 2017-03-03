@@ -1,81 +1,24 @@
-
-<!-- <p>
-    <strong>Search for a Product: <input ng-model="search"></strong>
-</p> -->
-
-
-        <div class="input-field col s12">
-          <i class="material-icons prefix">search</i>
-          <input type="textarea" id="autocomplete-input" class="form-control" ng-model="search">
-        </div>
-
-
+<div class="input-field col s12">
+  <i class="material-icons prefix">search</i>
+  <input type="textarea" id="autocomplete-input" class="form-control" ng-model="search">
+</div>
 <br>
 <br>
 <br>
-  <h4> Shop by Category </h4>
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = { }">All</button> |
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'food'}">Food</button> |
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'drinks'}">Drinks</button> |
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'toys'}">Toys</button> |
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'electronics'}">Electronics</button> |
-  <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'home'}">Home</button> |
-
+<h4> Shop by Category </h4>
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = { }">All</button> |
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'food'}">Food</button> |
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'drinks'}">Drinks</button> |
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'toys'}">Toys</button> |
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'electronics'}">Electronics</button> |
+<button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'other'}">Other</button> |
 <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newProduct">New Product</a></li>
-
-
-
-
-<!--   <div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="http://i.imgur.com/I6RSiyb.png">
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/2">
-        <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/3">
-        <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/4">
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-    </ul>
-  </div>
- -->
-
-
-
-
-
-
-
 <div ng-controller="ProductsController as pCtrl">
   <div ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
-
-
-
     <div class="col s3 m3">
       <div class="card">
         <div class="card-image">
           <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" height="300" width="200">
-<!--           <span class="card-title">{{product.name}}</span> -->
           <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
         </div>
         <div class="card-content">
@@ -84,11 +27,5 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
-
-
-<!-- <script src="/javascripts/materialize.js"></script>
- -->

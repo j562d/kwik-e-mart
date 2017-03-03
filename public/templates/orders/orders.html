@@ -1,30 +1,15 @@
-<!-- <ul ng-repeat="x in navCtrl.getUser().address track by $index">
-  <li>Street: {{x.street}}</li>
-  <li>City: {{x.city}}</li>
-  <li>Zipcode: {{x.zipcode}}</li>
-</ul> -->
-
-<!-- <div ng-controller="OrdersController as orderCtrl"> -->
 <h2>Order History</h2>
 <h3 ng-hide="orderCtrl.orders.length">You have no orders at this time</h3>
-
-
 <ul ng-repeat="order in orderCtrl.orders track by $index">
-<div class="orders">
-  <a ui-sref="viewOrder({orderId: order._id})"><strong>Order#: {{order._id}}</strong></a>
-  <li>Order Placed: {{order.createdAt | date: "mediumDate"}}</li>
-  <a ng-click="orderCtrl.delOrder(order)" class="secondary-content"><i class="material-icons">delete</i></a>
- <li>Order Total: ${{order.total}}</li>
- <li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>
-
-  <ul class="order" ng-repeat="item in order.items track by $index">
-<li>Product: {{item.name}}</li>
-<img ng-src='{{item.imageURL}}' height="60" width="60"> ${{item.price}} | QTY: {{item.qty}}
+  <div class="orders">
+    <a ui-sref="viewOrder({orderId: order._id})"><strong>Order#: {{order._id}}</strong></a>
+    <li>Order Placed: {{order.createdAt | date: "mediumDate"}}</li>
+    <a ng-click="orderCtrl.delOrder(order)" class="secondary-content"><i class="material-icons">delete</i></a>
+    <li>Order Total: ${{order.total}}</li>
+    <li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>
+    <ul class="order" ng-repeat="item in order.items track by $index">
+      <li>Product: {{item.name}}</li>
+      <img ng-src='{{item.imageURL}}' height="60" width="60"> ${{item.price}} | QTY: {{item.qty}}
+    </ul>
+  </div>
 </ul>
-</div>
-</ul>
-<!--   <li>Total: ${{o.total}}</li> -->
-
-</ul>
-<!-- </div> -->
-

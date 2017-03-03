@@ -17,7 +17,6 @@ function create(req, res, next) {
   }).catch( err => res.status(400).json(err) );
 }
 
-
 function login(req, res, next) {
   User.findOne({email: req.body.email}).exec().then(user => {
     if (!user) return res.status(401).json({err: 'bad credentials'});

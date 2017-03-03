@@ -20,8 +20,6 @@ router.use(function(req, res, next) {
 });
 
 // Protected routes (authentication required)
-
-
 router.post('/products', productCtrl.createProduct);
 router.delete('/products/:id', productCtrl.deleteProduct);
 router.put('/products/:id', productCtrl.updateProduct);

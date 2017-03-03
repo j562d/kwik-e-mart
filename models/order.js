@@ -2,8 +2,6 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-
-
 var orderSchema = new Schema({
   createdAt: {type: Date,
               default: Date.now},
@@ -16,7 +14,5 @@ var orderSchema = new Schema({
   shipped: {type: Boolean,
             default: false}
 });
-
-
 
 module.exports = mongoose.model('Order', orderSchema);

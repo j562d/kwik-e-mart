@@ -6,7 +6,7 @@ CartService.$inject = ['UserService'];
 function CartService(UserService) {
   var service = {
     removeItem,
-    clearCart,
+    emptyCart,
     addItem,
     getCart,
     decreaseItem
@@ -22,7 +22,7 @@ function CartService(UserService) {
     return cart;
   }
 
-  function clearCart() {
+  function emptyCart() {
     var key = getCartKey();
     localStorage.removeItem(key);
   }
@@ -37,7 +37,6 @@ function CartService(UserService) {
       cart.push(item);
     }
     updateCart(cart);
-    console.log(cart);
     return cart;
   }
 
@@ -46,25 +45,12 @@ function CartService(UserService) {
     var existingItem = cart.find(i => i._id === item._id);
     if(existingItem && existingItem.qty > 1) {
       existingItem.qty--;
-    }else if(existingItem && existingItem.qty >= 1) {
-      cart.splice(existingItem, 1);
     }else{
       console.log('nothing');
     }
     updateCart(cart);
-    console.log(cart);
     return cart;
   }
-
-  // function getTotal() {
-  //   var total = 0;
-  //   var cart = getCart();
-  //   for(var i = 0; i < cart.length; i++){
-  //       var product = cart[i];
-  //       total += (product.price * product.qty);
-  //   }
-  //   return total;
-  // }
 
   function getCart() {
     var key = getCartKey();
@@ -77,12 +63,9 @@ function CartService(UserService) {
     }
   }
 
-
-
-  // Helper Functions
   function getCartKey() {
     var user = UserService.getUser();
-    return user ? "cart:" + user._id : "cart:anonymous";
+    return user ? "cart:" + user._id : "cart:guest";
   }
   function updateCart(cart) {
     var key = getCartKey();

@@ -21,17 +21,12 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
 
   vm.delProduct = function(product) {
     vm.product.$delete(function() {
-      console.log(vm.product);
-      // vm.products.splice(vm.products.findIndex(t => t._id === product._id), 1);
-      // vm.products = productService.query();
       $state.go('home');
-      // above is more performant than vm.products = Todo.query();
     });
   };
 
   vm.edit = function(product) {
     vm.product.$update(function(){
-      console.log(vm.product);
       $state.go('home');
     });
   };
@@ -50,8 +45,7 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
   var itemToAdd = angular.copy(vm.product);
   itemToAdd.count = 1;
   vm.cart.push(itemToAdd);
-  console.log(vm.cart);
-}
+  }
 
   vm.deleteItem = function(item) {
     CartService.removeItem(item);
@@ -62,7 +56,6 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
     CartService.decreaseItem(item);
     $state.reload();
   }
-
 
   vm.getTotal = function(){
       var total = 0;
@@ -78,7 +71,6 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
           vm.product = product;
           vm.text = '';
           vm.rating = '';
-          console.log(product);
       });
   }
 
@@ -87,7 +79,6 @@ function ProductsController(productService, $stateParams, $state, $http, CartSer
           vm.product = product;
       });
   };
-
 
 }
 

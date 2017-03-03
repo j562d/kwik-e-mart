@@ -1,40 +1,27 @@
 <h2>Order Details</h2>
-
-
- <p><strong>Date Created:</strong> {{orderCtrl.order.createdAt | date: "mediumDate"}}</p>
- <p><strong>Total:</strong> ${{orderCtrl.order.total}}</p>
- <br>
- <strong>Shipping Address</strong>
- <p><strong>Street: </strong>{{orderCtrl.order.street}}</p>
- <!--      <span ng-show="orderCtrl.itemEditing === item">
-        <input type="text" ng-model="orderCtrl.order.street">
-        <button class="btn btn-xs btn-info" ng-click="orderCtrl.doneEditing(item)">Save</button>
-      </span> -->
-
-
-
-
- <p><strong>City:</strong> {{orderCtrl.order.city}}</p>
- <p><strong>Zipcode:</strong> {{orderCtrl.order.zipcode}}</p>
- <br>
- <br>
- <br>
+<p><strong>Date Created:</strong> {{orderCtrl.order.createdAt | date: "mediumDate"}}</p>
+<p><strong>Total:</strong> ${{orderCtrl.order.total}}</p>
+<br>
+<strong>Shipping Address</strong>
+<p><strong>Street: </strong>{{orderCtrl.order.street}}</p>
+<p><strong>City:</strong> {{orderCtrl.order.city}}</p>
+<p><strong>Zipcode:</strong> {{orderCtrl.order.zipcode}}</p>
+<br>
+<br>
+<br>
 <div ng-repeat="item in orderCtrl.order.items">
-<!--   <div class="col s12 m12"> -->
-<div class="order">
-<img ng-src='{{item.imageURL}}' height="60" width="60">
-<p><strong>Product:</strong> {{item.name}}</p>
-<p><strong>Price per Item:</strong> ${{item.price}}</p>
-<p><strong>Quantity:</strong> {{item.qty}}</p>
-</div>
-<!-- </div> -->
+  <div class="order">
+    <img ng-src='{{item.imageURL}}' height="60" width="60">
+    <p><strong>Product:</strong> {{item.name}}</p>
+    <p><strong>Price per Item:</strong> ${{item.price}}</p>
+    <p><strong>Quantity:</strong> {{item.qty}}</p>
+  </div>
 </div>
 <br>
 <br>
 <br>
-
 <h4> Edit your Shipping Address</h4>
-  Street:<input type="text" ng-model="orderCtrl.order.street" id="street">
-  City<input type="text" ng-model="orderCtrl.order.city" id="city">
-  Zipcode<input type="text" ng-model="orderCtrl.order.zipcode" id="zipcode">
- <button class="btn btn-xs btn-info" ng-click="orderCtrl.editOrder(order)">Save</button>
+Street:<input type="text" ng-model="orderCtrl.order.street" id="street">
+City<input type="text" ng-model="orderCtrl.order.city" id="city">
+Zipcode<input type="text" ng-model="orderCtrl.order.zipcode" id="zipcode">
+<button class="btn btn-xs btn-info" ng-click="orderCtrl.editOrder(order)">Save</button>
