@@ -4,18 +4,16 @@
     <strong>Search for a Product: <input ng-model="search"></strong>
 </p> -->
 
-    <div class="col s12">
-      <div class="row">
+
         <div class="input-field col s12">
           <i class="material-icons prefix">search</i>
-          <input type="text" id="autocomplete-input" class="autocomplete" ng-model="search">
-          <label for="autocomplete-input">Search for a product!</label>
+          <input type="textarea" id="autocomplete-input" class="form-control" ng-model="search">
         </div>
-      </div>
-    </div>
 
 
-
+<br>
+<br>
+<br>
   <h3> Shop by Category </h3>
   <button class="btn-info btn-lg" ng-click="myFilter = { }">All</button> |
   <button class="btn-info btn-lg" ng-click="myFilter = {category: 'food'}">Food</button> |
