@@ -5,7 +5,7 @@ module.exports.createToken = function(user, res) {
   var token = jwt.sign(
     {user: user},
     SECRET,
-    {expiresIn: '5m'}
+    {expiresIn: '30m'}
   );
   res.set('Authorization', token);
   return token;

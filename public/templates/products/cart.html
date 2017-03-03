@@ -47,7 +47,7 @@
             <td><img class="float" ng-src='{{p.imageURL}}' height="100" width="100"></td>
             <td><h4>{{p.name}}</h4></td>
             <td>${{p.price}}</td>
-            <td><strong class="arrow" ng-click="pCtrl.decreaseItem(p)">v</strong>{{p.qty}}<strong class="arrow" ng-click="pCtrl.increaseItem(p)">^</strong></td>
+            <td><strong class="arrow" ng-click="pCtrl.decreaseItem(p)">-</strong>{{p.qty}}<strong class="arrow" ng-click="pCtrl.increaseItem(p)">+</strong></td>
             <td><strong>SubTotal: ${{p.price * p.qty}}</strong></td>
             <td><input class="btn btn-danger" type="button" ng-click="pCtrl.deleteItem(p)" value="REMOVE"></td>
           </tr>

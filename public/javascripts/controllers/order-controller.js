@@ -65,6 +65,17 @@ function OrdersController(productService, $stateParams, $state, $http, CartServi
   //     }
   // }
 
+  // vm.selectItem = function(item) {
+  //   vm.itemEditing = item;
+  //   console.log(item);
+  // };
+
+  // vm.doneEditing = function(item) {
+  //   item.$update(function(){
+  //     vm.itemEditing = null;
+  //   });
+  // };
+
 }
 
 })();

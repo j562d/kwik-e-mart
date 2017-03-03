@@ -67,12 +67,6 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       loginRequired: true
     })
 
-    // .state('editProduct', {
-    //   url: '/products/:productId/edit',
-    //   templateUrl: 'templates/products/edit.html',
-    //   controller: 'ProductsController as pCtrl'
-    // });
-
     .state('checkout', {
       url: '/checkout',
       templateUrl: 'templates/products/checkout.html',
@@ -83,7 +77,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('confirmation', {
       url: '/confirmation',
       templateUrl: 'templates/products/confirmation.html',
-      controller: 'OrdersController as orderCtrl'
+      controller: 'OrdersController as orderCtrl',
+      loginRequired: true
     })
 
     .state('editOrder', {
@@ -96,7 +91,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('viewOrder', {
       url: '/orders/:orderId',
       templateUrl: 'templates/products/order.html',
-      controller: 'OrdersController as orderCtrl'
+      controller: 'OrdersController as orderCtrl',
+      loginRequired: true
     });
 
   $urlRouterProvider.otherwise('/home');

@@ -4,26 +4,16 @@
 <h5>Product Sku: {{pCtrl.product.sku}}</h5><br>
 <h5>Price: ${{pCtrl.product.price}}</h5><br>
 <h4>{{pCtrl.product.description}}</h4><br>
-  <button class="btn-warning" ng-click="pCtrl.delProduct(product)" >delete</button>
-  <input class="btn btn-success" type="button" ng-click="pCtrl.addItemToCart(pCtrl.product)" value="Add to Cart">
+<!--   <button class="btn-warning" ng-click="pCtrl.delProduct(product)" >delete</button> -->
+  <button class="btn btn-success" ng-click="pCtrl.addItemToCart(pCtrl.product)">Add to Cart <i class="material-icons">shopping_cart</i></button>
 
 
-
-
-<!--       <span >
-        <input type="text" ng-model="pCtrl.product.name">
-        <button class="btn btn-xs btn-info" ng-click="pCtrl.editProduct(product)">Save</button>
-      </span>
- -->
-
-<!--       <span ng-hide="pCtrl.productEditing === product" ng-click="pCtrl.selectproduct(product)">{{product.name}}</span>
-      <span ng-show="pCtrl.productEditing === product"> -->
-        <input type="text" ng-model="pCtrl.product.name" id="name">
+<!--         <input type="text" ng-model="pCtrl.product.name" id="name">
         <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
-<!--       </span>
- -->
+      </span>
+
  <input type="text" ng-model="pCtrl.product.sku" id="name">
- <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button>
+ <button class="btn btn-xs btn-info" ng-click="pCtrl.edit(product)">Save</button> -->
 
 
 <!-- <form ng-submit="pCtrl.createReview()" class="col s12">
@@ -46,7 +36,8 @@
 
  -->
 
-<form ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
+<form class="clear" ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
+<h4> Leave a Review! </h4>
         <div class="form-group">
         <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
         <!-- <input ng-model="pCtrl.rating" autocomplete="off" type="textarea" class="form-control" placeholder="rating"> -->
@@ -61,7 +52,7 @@
       </div>
       <button class="btn btn-default" type="submit">Add Comment</button>
  </form><br>
-
+<h4 class="clear"> Product Reviews </h4>
     <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
       <div class="panel-header">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-show="review.reviewer == navCtrl.getUser()._id" ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
       <div class="panel-body">

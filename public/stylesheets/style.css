@@ -42,9 +42,8 @@ td {
 }*/
 
 .arrow {
-  border: 1px solid black;
-  margin: 5px;
-  border-radius: 20px;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .card {
@@ -59,4 +58,8 @@ td {
 .checkout {
   border: 2px solid black;
   border-radius: 10px;
+}
+
+.clear {
+  clear: left;
 }
