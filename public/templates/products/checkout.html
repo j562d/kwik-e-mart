@@ -1,19 +1,21 @@
 
 <h2>Please enter your shipping address</h2>
+{{navCtrl.getUser()._id}}
+{{orderCtrl.user.name}}
 
 <div class="col s6">
   <form ng-submit="orderCtrl.addOrder()" class="col s12">
-    <div class="input-field">
-      <input ng-model="orderCtrl.order.street" autocomplete="off" id="street" type="text" required>
+    <div>
       <label for="street">Street</label>
+      <input ng-model="orderCtrl.order.street" ng-init="orderCtrl.order.street=orderCtrl.user.street" autocomplete="off" id="street" type="text" required>
     </div>
-    <div class="input-field">
-      <input ng-model="orderCtrl.order.city" autocomplete="off" id="city" type="text" required>
+    <div>
       <label for="city">City</label>
+      <input ng-model="orderCtrl.order.city" ng-init="orderCtrl.order.city=orderCtrl.user.city" autocomplete="off" id="city" type="text" required>
     </div>
-    <div class="input-field">
-      <input ng-model="orderCtrl.order.zipcode" autocomplete="off" id="zipcode" type="text" required>
+    <div>
       <label for="zipcode">Zipcode</label>
+      <input ng-model="orderCtrl.order.zipcode" ng-init="orderCtrl.order.zipcode=orderCtrl.user.zipcode" autocomplete="off" id="zipcode" type="text" required>
     </div>
     <button class="btn waves-effect waves-light" type="submit" name="action">
         Confirm Order

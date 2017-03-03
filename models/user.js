@@ -5,11 +5,11 @@ const SALT_ROUNDS = 6;
 
 var Schema = mongoose.Schema;
 
-var addressSchema = new Schema ({
-  street: String,
-  city: String,
-  zipcode: Number
-});
+// var addressSchema = new Schema ({
+//   street: String,
+//   city: String,
+//   zipcode: Number
+// });
 
 var orderSchema = new Schema ({
   number: Number,
@@ -26,7 +26,9 @@ var userSchema = new Schema({
   name: String,
   email: {type: String, lowercase: true, unique: true},
   password: String,
-  address: [addressSchema],
+  street: String,
+  city: String,
+  zipcode: String,
   orders: {type: Schema.Types.ObjectId, ref: 'Order'}
 });
 

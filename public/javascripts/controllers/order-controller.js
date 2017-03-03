@@ -9,6 +9,8 @@ OrdersController.$inject = ['productService', '$stateParams', '$state', '$http',
 function OrdersController(productService, $stateParams, $state, $http, CartService, UserService, OrderService) {
   var vm = this;
 
+  vm.user = UserService.getUser();
+
   vm.cart = CartService.getCart();
 
   vm.products = productService.query();
