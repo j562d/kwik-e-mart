@@ -45,8 +45,6 @@ function CartService(UserService) {
     var existingItem = cart.find(i => i._id === item._id);
     if(existingItem && existingItem.qty > 1) {
       existingItem.qty--;
-    }else{
-      console.log('nothing');
     }
     updateCart(cart);
     return cart;
