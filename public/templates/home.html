@@ -6,23 +6,28 @@
 <br>
 <br>
 <h4> Shop by Category </h4>
+<div class="filters">
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = { }">All</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'food'}">Food</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'drinks'}">Drinks</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'toys'}">Toys</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'electronics'}">Electronics</button> |
 <button class="waves-effect waves-light btn green darken-2" ng-click="myFilter = {category: 'other'}">Other</button> |
+</div>
 <div ng-controller="ProductsController as pCtrl">
   <div ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
-    <div class="col s2 m2">
-      <div class="card">
+    <div class="col s12 m6 l3">
+      <div>
         <div class="card-image">
-          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}">
-          <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
-        </div>
+          <img ui-sref="viewProduct({productId: product._id})" ng-src="{{product.imageURL}}" height="200">
+<!--           <a class="btn-floating halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
+ -->        </div>
+        <div class="card-stacked">
         <div class="card-content">
           <h4>{{product.name}}</h4>
           <h5>${{product.price}}</h5>
+          <a class="btn halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
+        </div>
         </div>
       </div>
     </div>

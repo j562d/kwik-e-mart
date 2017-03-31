@@ -32,7 +32,7 @@ a {
 }
 
 .card {
-  border: 3px solid black;
+  border: 6px solid black;
 }
 
 .nav-extended {
@@ -78,3 +78,18 @@ a {
 .m2 {
   height: 400px;
 }
+
+.card-content {
+  height: 150px;
+  text-align: center;
+}
+
+.card-image {
+  text-align: center;
+}
+
+.filters {
+  margin-bottom: 50px;
+}
+
+
