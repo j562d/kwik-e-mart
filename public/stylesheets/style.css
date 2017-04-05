@@ -1,5 +1,14 @@
+* {
+  font-family: 'Indie Flower', cursive;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "akbar";
+  src: url("akbar.ttf");
 }
 
 a {
@@ -99,4 +108,9 @@ a {
 
 .review-form {
   margin-top: 100px;
+}
+
+.card-image {
+  cursor: pointer;
+  cursor: hand;
 }
