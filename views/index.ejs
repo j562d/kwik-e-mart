@@ -40,7 +40,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><h3>Sign In</h3></a></li>
           <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><h3>Welcome {{navCtrl.getUser().name}}</h3></a></li>
-          <li ui-sref-active="cart"><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li>
+          <li ui-sref-active="cart"><a ui-sref="cart"><i class="material-icons">shopping_cart</i></a></li>({{navCtrl.cart().length}})
         </ul>
       </div>
     </nav>

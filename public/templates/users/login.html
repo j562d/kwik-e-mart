@@ -2,6 +2,7 @@
   <h2>Log In</h2>
   <br>
   <br>
+  <h4 ng-show="userCtrl.error" class="text-warning"> Invalid log-in.</h4>
   <form ng-submit="userCtrl.login()" class="col s12">
     <div class="form-group">
       <h4>Email</h4>

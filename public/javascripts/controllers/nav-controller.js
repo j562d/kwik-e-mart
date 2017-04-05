@@ -9,7 +9,8 @@ NavController.$inject = ['$state', 'UserService', 'CartService', 'TokenService']
 function NavController($state, UserService, CartService, TokenService) {
   var vm = this;
 
-  vm.cart = CartService.getCart();
+  // vm.cart = CartService.getCart();
+  vm.cart = CartService.getCart;
 
   vm.logout = function() {
     UserService.logout();

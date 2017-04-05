@@ -8,6 +8,7 @@ UserController.$inject = ['$state', 'UserService'];
 
 function UserController($state, UserService) {
   var vm = this;
+  vm.error = false;
 
   vm.signup = function() {
     UserService.signup(vm.user).then(function() {
@@ -21,6 +22,7 @@ function UserController($state, UserService) {
       $state.go('home');
     }, function() {
       $state.go('login');
+      vm.error = true;
     });
     vm.user = {};
   };
