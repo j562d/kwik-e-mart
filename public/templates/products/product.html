@@ -1,12 +1,12 @@
 <h2>{{pCtrl.product.name}}</h2>
 <img class="float" src='{{pCtrl.product.imageURL}}' height="300" width="300"><br>
-<h5>Product Sku: {{pCtrl.product.sku}}</h5><br>
-<h5>Price: ${{pCtrl.product.price}}</h5><br>
-<h4>{{pCtrl.product.description}}</h4><br>
+<h3>Product Sku: {{pCtrl.product.sku}}</h3><br>
+<h3>Price: ${{pCtrl.product.price}}</h3><br>
+<h3>{{pCtrl.product.description}}</h3><br>
 <button class="btn btn-success" ng-click="pCtrl.addItemToCart(pCtrl.product)">Add to Cart <i class="material-icons">shopping_cart</i></button>
 
 <form class="clear review-form" ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
-  <h4> Leave a Review! </h4>
+  <h3> Leave a Review! </h3>
   <div class="form-group">
     <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
     <label class="label-size" for="rating">Rating: </label>
@@ -21,8 +21,8 @@
   <button class="btn btn-default" type="submit">Add Review</button>
 </form><br>
 
-<h4 class="clear"> Product Reviews </h4>
-<h5 class="clear" ng-hide="pCtrl.product.reviews.length"> There are currently no reviews for this product. </h5>
+<h3 class="clear"> Product Reviews </h3>
+<h4 class="clear" ng-hide="pCtrl.product.reviews.length"> There are currently no reviews for this product. </h4>
   <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
     <div class="panel-header reviews">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-show="review.reviewer == navCtrl.getUser()._id" ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
     <div class="panel-body reviews">

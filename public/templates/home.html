@@ -1,3 +1,11 @@
+
+<div class="advertise">
+  <li class="image2 box1"></li>
+  <li class="image box2"></li>
+  <li class="image box3"></li>
+</div>
+
+
 <div class="input-field col s12">
   <i class="material-icons prefix">search</i>
   <input type="textarea" id="autocomplete-input" class="form-control" ng-model="search">
@@ -17,6 +25,7 @@
 
 
 
+
 <div ng-controller="ProductsController as pCtrl">
   <div ng-repeat="product in pCtrl.products | orderBy:'name' | filter:search | filter:myFilter">
     <div class="col s12 m6 l3">
@@ -27,8 +36,8 @@
  -->        </div>
         <div class="card-stacked">
         <div class="card-content">
-          <h4>{{product.name}}</h4>
-          <h5>${{product.price}}</h5>
+          <h3>{{product.name}}</h4>
+          <h3>${{product.price}}</h5>
           <a class="btn halfway-fab waves-effect waves-light green" ng-click="pCtrl.addItemToCart(product)"><i>ADD</i></a>
         </div>
         </div>
@@ -36,6 +45,7 @@
     </div>
   </div>
 </div>
+
 
 
 <!-- The code below is to Add a new produt. I will implement later in the future when I set up Admin accounts. -->

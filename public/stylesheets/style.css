@@ -1,5 +1,6 @@
 * {
   font-family: 'Indie Flower', cursive;
+  font-size: 25px;
 }
 
 body {
@@ -47,6 +48,7 @@ a {
 .nav-extended {
   padding: 10px;
   border: 2px solid black;
+  background-color: rgba(0,0,0, .5);
 }
 
 .checkout {
@@ -114,3 +116,54 @@ a {
   cursor: pointer;
   cursor: hand;
 }
+
+
+.banner{
+  background-image: url("https://s-media-cache-ak0.pinimg.com/564x/1d/d5/8c/1dd58cbc9f1f1c4457aa7c0e4fb28e34.jpg")
+}
+
+.container {
+  background-color: white;
+}
+
+
+li.image {
+margin: 10px;
+overflow: hidden;
+width:320px;
+height:220px;
+background-color:black;
+}
+
+li.image2 {
+margin: 10px;
+overflow: hidden;
+float: left;
+width:760px;
+height:460px;
+background-color:black;
+}
+
+.box1, .box2, .box3 {
+  background-size: cover;
+}
+
+.box1 {
+  background-image: url("https://www.walldevil.com/wallpapers/a22/homer-simpson-the-simpsons-donut-dessert-food.jpg");
+}
+
+.box2 {
+  background-image: url("http://i.imgur.com/Jqewnaw.jpg?1");
+}
+
+.box3 {
+  background-image: url("http://i.imgur.com/xEZC2pr.jpg?1");
+}
+
+@media screen and (max-width: 1200px) {
+  .advertise {
+    visibility: hidden;
+    display: none;
+  }
+}
+

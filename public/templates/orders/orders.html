@@ -5,9 +5,9 @@
     <a ui-sref="viewOrder({orderId: order._id})"><strong>Order#: {{order._id}}</strong></a>
     <li>Order Placed: {{order.createdAt | date: "mediumDate"}}</li>
     <a ng-click="orderCtrl.delOrder(order)" class="secondary-content"><i class="material-icons">delete</i></a>
-    <li>Order Total: ${{order.total}}</li>
-    <li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>
-    <ul class="order" ng-repeat="item in order.items track by $index">
+    <br><li>Order Total: ${{order.total}}</li>
+    <br><li>Shipping Address: {{order.street}} {{order.city}} {{order.zipcode}}</li>
+    <br><ul class="order" ng-repeat="item in order.items track by $index">
       <li>Product: {{item.name}}</li>
       <img ng-src='{{item.imageURL}}' height="60" width="60"> ${{item.price}} | QTY: {{item.qty}}
     </ul>
