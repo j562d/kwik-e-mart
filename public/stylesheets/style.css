@@ -92,4 +92,11 @@ a {
   margin-bottom: 50px;
 }
 
+.reviews {
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
+.review-form {
+  margin-top: 100px;
+}

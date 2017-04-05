@@ -5,7 +5,7 @@
 <h4>{{pCtrl.product.description}}</h4><br>
 <button class="btn btn-success" ng-click="pCtrl.addItemToCart(pCtrl.product)">Add to Cart <i class="material-icons">shopping_cart</i></button>
 
-<form class="clear" ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
+<form class="clear review-form" ng-show="navCtrl.isLoggedIn()" ng-submit="pCtrl.createReview()">
   <h4> Leave a Review! </h4>
   <div class="form-group">
     <input ng-model="pCtrl.text" autocomplete="off" type="textarea" class="form-control" placeholder="comment">
@@ -20,10 +20,12 @@
   </div>
   <button class="btn btn-default" type="submit">Add Review</button>
 </form><br>
+
 <h4 class="clear"> Product Reviews </h4>
+<h5 class="clear" ng-hide="pCtrl.product.reviews.length"> There are currently no reviews for this product. </h5>
   <div class="panel" ng-repeat="review in pCtrl.product.reviews | orderBy:'createdAt':true track by $index">
-    <div class="panel-header">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-show="review.reviewer == navCtrl.getUser()._id" ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
-    <div class="panel-body">
+    <div class="panel-header reviews">&nbsp;&nbsp;Reviewed on: {{review.createdAt | date: "mediumDate"}}&nbsp;&nbsp;<span ng-show="review.reviewer == navCtrl.getUser()._id" ng-click="pCtrl.deleteReview(review)" class="glyphicon glyphicon-trash" id="delete-comment"></span></div>
+    <div class="panel-body reviews">
       <strong>Review:</strong> {{review.text}}<br>
       <strong>Rating:</strong> {{review.rating}}/5
     </div>
