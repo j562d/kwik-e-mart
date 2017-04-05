@@ -131,17 +131,15 @@ li.image {
 margin: 10px;
 overflow: hidden;
 width:320px;
-height:220px;
-background-color:black;
+height:200px;
 }
 
-li.image2 {
+a.image2 {
 margin: 10px;
 overflow: hidden;
 float: left;
 width:760px;
-height:460px;
-background-color:black;
+height:400px;
 }
 
 .box1, .box2, .box3 {
@@ -157,7 +155,7 @@ background-color:black;
 }
 
 .box3 {
-  background-image: url("http://i.imgur.com/xEZC2pr.jpg?1");
+  background-image: url("http://i.imgur.com/EohDwSy.jpg?2");
 }
 
 @media screen and (max-width: 1200px) {
