@@ -31,7 +31,7 @@ The technologies used in creating this app are:
 
 Click on the Heroku link below to go to the web store. Guest users can freely browse, view products, and add to the cart. But in order to checkout, users must register an account. Registered users can also check their order history and cancel any order they want.
 
-#### [Link to Heroku] (http://kwikemart-online.heroku.com/)
+#### [Link to Heroku] (http://kwikemart-online.herokuapp.com/)
 #### [Link to Trello] (https://trello.com/b/g4CD4UKB/project-4-online-kwik-e-mart)
 
 
